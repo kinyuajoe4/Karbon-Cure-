@@ -91,6 +91,11 @@ class UsersRecord extends FirestoreRecord {
   double get tokenbalance => _tokenbalance ?? 0.0;
   bool hasTokenbalance() => _tokenbalance != null;
 
+  // "footprintbalance" field.
+  double? _footprintbalance;
+  double get footprintbalance => _footprintbalance ?? 0.0;
+  bool hasFootprintbalance() => _footprintbalance != null;
+
   void _initializeFields() {
     _displayName = snapshotData['display_name'] as String?;
     _email = snapshotData['email'] as String?;
@@ -107,6 +112,7 @@ class UsersRecord extends FirestoreRecord {
     _locality = snapshotData['locality'] as String?;
     _schedule = snapshotData['schedule'] as String?;
     _tokenbalance = castToType<double>(snapshotData['tokenbalance']);
+    _footprintbalance = castToType<double>(snapshotData['footprintbalance']);
   }
 
   static CollectionReference get collection =>
@@ -158,6 +164,7 @@ Map<String, dynamic> createUsersRecordData({
   String? locality,
   String? schedule,
   double? tokenbalance,
+  double? footprintbalance,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -176,6 +183,7 @@ Map<String, dynamic> createUsersRecordData({
       'locality': locality,
       'schedule': schedule,
       'tokenbalance': tokenbalance,
+      'footprintbalance': footprintbalance,
     }.withoutNulls,
   );
 
@@ -201,7 +209,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.speciality == e2?.speciality &&
         e1?.locality == e2?.locality &&
         e1?.schedule == e2?.schedule &&
-        e1?.tokenbalance == e2?.tokenbalance;
+        e1?.tokenbalance == e2?.tokenbalance &&
+        e1?.footprintbalance == e2?.footprintbalance;
   }
 
   @override
@@ -220,7 +229,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.speciality,
         e?.locality,
         e?.schedule,
-        e?.tokenbalance
+        e?.tokenbalance,
+        e?.footprintbalance
       ]);
 
   @override

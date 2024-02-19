@@ -594,7 +594,7 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                               0.0, 0.0, 0.0, 0.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: Color(0xFF0C8D00),
+                          color: FlutterFlowTheme.of(context).success,
                           textStyle: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(

@@ -14,6 +14,7 @@ import 'flutter_flow/flutter_flow_util.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
 
@@ -113,7 +114,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPageName = 'homePage';
+  String _currentPageName = 'activities';
   late Widget? _currentPage;
 
   @override
@@ -126,76 +127,106 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'homePage': HomePageWidget(),
-      'visitationTab': VisitationTabWidget(),
-      'activeusers': ActiveusersWidget(),
-      'TreeAPIlist': TreeAPIlistWidget(),
+      'activities': ActivitiesWidget(),
+      'projectlist': ProjectlistWidget(),
+      'learningpage': LearningpageWidget(),
       'profilePage': ProfilePageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
+    final MediaQueryData queryData = MediaQuery.of(context);
+
     return Scaffold(
-      body: _currentPage ?? tabs[_currentPageName],
-      bottomNavigationBar: BottomNavigationBar(
+      body: MediaQuery(
+          data: queryData
+              .removeViewInsets(removeBottom: true)
+              .removeViewPadding(removeBottom: true),
+          child: _currentPage ?? tabs[_currentPageName]!),
+      extendBody: true,
+      bottomNavigationBar: FloatingNavbar(
         currentIndex: currentIndex,
         onTap: (i) => setState(() {
           _currentPage = null;
           _currentPageName = tabs.keys.toList()[i];
         }),
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-        selectedItemColor: Color(0xFF25E31E),
+        selectedItemColor: FlutterFlowTheme.of(context).success,
         unselectedItemColor: FlutterFlowTheme.of(context).grayLight,
-        showSelectedLabels: true,
-        showUnselectedLabels: false,
-        type: BottomNavigationBarType.fixed,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_outlined,
-              size: 24.0,
+        selectedBackgroundColor: Color(0x00000000),
+        borderRadius: 8.0,
+        itemBorderRadius: 10.0,
+        margin: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 16.0),
+        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+        width: double.infinity,
+        elevation: 10.0,
+        items: [
+          FloatingNavbarItem(
+            customWidget: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.home_outlined,
+                  color: currentIndex == 0
+                      ? FlutterFlowTheme.of(context).success
+                      : FlutterFlowTheme.of(context).grayLight,
+                  size: 26.0,
+                ),
+              ],
             ),
-            activeIcon: Icon(
-              Icons.home_rounded,
-              size: 24.0,
-            ),
-            label: 'home',
-            tooltip: '',
           ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.solidCalendarCheck,
-              size: 24.0,
+          FloatingNavbarItem(
+            customWidget: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.work_history,
+                  color: currentIndex == 1
+                      ? FlutterFlowTheme.of(context).success
+                      : FlutterFlowTheme.of(context).grayLight,
+                  size: 26.0,
+                ),
+              ],
             ),
-            label: 'Monitor',
-            tooltip: '',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person_search,
-              size: 24.0,
+          FloatingNavbarItem(
+            customWidget: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  FontAwesomeIcons.microblog,
+                  color: currentIndex == 2
+                      ? FlutterFlowTheme.of(context).success
+                      : FlutterFlowTheme.of(context).grayLight,
+                  size: 26.0,
+                ),
+              ],
             ),
-            label: 'All users',
-            tooltip: '',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.local_library,
-              size: 24.0,
+          FloatingNavbarItem(
+            customWidget: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  currentIndex == 3
+                      ? Icons.account_circle_rounded
+                      : Icons.account_circle_outlined,
+                  color: currentIndex == 3
+                      ? FlutterFlowTheme.of(context).success
+                      : FlutterFlowTheme.of(context).grayLight,
+                  size: currentIndex == 3 ? 27.0 : 26.0,
+                ),
+                Text(
+                  'profile',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: currentIndex == 3
+                        ? FlutterFlowTheme.of(context).success
+                        : FlutterFlowTheme.of(context).grayLight,
+                    fontSize: 11.0,
+                  ),
+                ),
+              ],
             ),
-            label: 'Library',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.account_circle_outlined,
-              size: 24.0,
-            ),
-            activeIcon: Icon(
-              Icons.account_circle_rounded,
-              size: 24.0,
-            ),
-            label: 'profile',
-            tooltip: '',
           )
         ],
       ),

@@ -468,8 +468,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                           return;
                                                         }
 
-                                                        context.goNamedAuth(
-                                                            'homePage',
+                                                        context.pushNamedAuth(
+                                                            'activities',
                                                             context.mounted);
                                                       },
                                                       text: 'Login',
@@ -658,6 +658,51 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                     .contain,
                                                               ),
                                                             ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 20.0,
+                                                                0.0, 0.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        context.pushNamed(
+                                                            'registerpage');
+                                                      },
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .end,
+                                                        children: [
+                                                          Text(
+                                                            'New Member?',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Outfit',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .accent1,
+                                                                ),
                                                           ),
                                                         ],
                                                       ),

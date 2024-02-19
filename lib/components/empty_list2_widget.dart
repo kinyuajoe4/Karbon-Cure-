@@ -61,7 +61,7 @@ class _EmptyList2WidgetState extends State<EmptyList2Widget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Seems you don’t have fields to show',
+                'Have some personal climate  projects',
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).headlineSmall.override(
                       fontFamily: 'Outfit',
@@ -71,20 +71,30 @@ class _EmptyList2WidgetState extends State<EmptyList2Widget> {
             ],
           ),
         ),
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 0.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Text(
-                  'Browse our menu to update Fields or add a new Tree that you planted or monitoring.',
+        Expanded(
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '🌿 Neutralize your carbon footprint with personal tree planting projects.',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodySmall,
                 ),
-              ),
-            ],
+                Text(
+                  '🟩 Specify the locations of your projects by adding your fields.\n',
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).bodySmall,
+                ),
+                Text(
+                  '💚 Monitor your climate projects using daily reminders.\n',
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).bodySmall,
+                ),
+              ],
+            ),
           ),
         ),
         Padding(
@@ -104,7 +114,7 @@ class _EmptyList2WidgetState extends State<EmptyList2Widget> {
                 },
               ).then((value) => safeSetState(() {}));
             },
-            text: 'Browse Menu',
+            text: 'Add field',
             options: FFButtonOptions(
               width: 170.0,
               height: 50.0,

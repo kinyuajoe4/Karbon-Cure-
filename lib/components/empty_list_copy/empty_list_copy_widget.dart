@@ -59,25 +59,9 @@ class _EmptyListCopyWidgetState extends State<EmptyListCopyWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'No  Trees Available',
+                'No projects Yet',
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).headlineSmall,
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 0.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Text(
-                  'You are all caught! You do not have any trees in this field.',
-                  textAlign: TextAlign.center,
-                  style: FlutterFlowTheme.of(context).bodySmall,
-                ),
               ),
             ],
           ),

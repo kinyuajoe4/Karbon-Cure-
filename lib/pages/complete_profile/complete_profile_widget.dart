@@ -3,15 +3,12 @@ import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/flutter_flow/place.dart';
 import '/flutter_flow/upload_data.dart';
-import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -35,6 +32,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
   late CompleteProfileModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  LatLng? currentUserLocationValue;
 
   final animationsMap = {
     'circleImageOnPageLoadAnimation': AnimationInfo(
@@ -674,71 +672,6 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 15.0, 0.0, 0.0),
-                            child: FlutterFlowPlacePicker(
-                              iOSGoogleMapsApiKey:
-                                  'AIzaSyAJoncf1vnF3dirDkhwJ8fTZ_YaoqaGioI',
-                              androidGoogleMapsApiKey:
-                                  'AIzaSyAJoncf1vnF3dirDkhwJ8fTZ_YaoqaGioI',
-                              webGoogleMapsApiKey:
-                                  'AIzaSyAJoncf1vnF3dirDkhwJ8fTZ_YaoqaGioI',
-                              onSelect: (place) async {
-                                setState(() => _model.placePickerValue = place);
-                              },
-                              defaultText: 'Select Your Location',
-                              icon: Icon(
-                                Icons.place,
-                                color: Color(0xFF25E31E),
-                                size: 16.0,
-                              ),
-                              buttonOptions: FFButtonOptions(
-                                width: 200.0,
-                                height: 40.0,
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Outfit',
-                                      color: FlutterFlowTheme.of(context).info,
-                                    ),
-                                elevation: 2.0,
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                            ),
-                          ),
-                          if (_model.placePickerValue.city != null &&
-                              _model.placePickerValue.city != '')
-                            Text(
-                              'City: ${valueOrDefault<String>(
-                                _model.placePickerValue.city,
-                                'Nairobi',
-                              )}',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Outfit',
-                                    color: Color(0xFF25E31E),
-                                    fontSize: 16.0,
-                                  ),
-                            ),
-                          if (_model.placePickerValue.city != null &&
-                              _model.placePickerValue.city != '')
-                            Text(
-                              'Address: ${_model.placePickerValue.name}',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Outfit',
-                                    color: Color(0xFF25E31E),
-                                    fontSize: 16.0,
-                                  ),
-                            ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
                                 20.0, 12.0, 20.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -856,6 +789,10 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                                 final buttonLoginUsersRecord = snapshot.data!;
                                 return FFButtonWidget(
                                   onPressed: () async {
+                                    currentUserLocationValue =
+                                        await getCurrentUserLocation(
+                                            defaultLocation: LatLng(0.0, 0.0));
+
                                     await buttonLoginUsersRecord.reference
                                         .update(createUsersRecordData(
                                       displayName:
@@ -868,8 +805,11 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                                       password: '',
                                       uid: '',
                                       ailments: '',
-                                      location: _model.placePickerValue.latLng,
+                                      location: currentUserLocationValue,
                                       tokenbalance: 20.0,
+                                      phoneNumber: '',
+                                      footprintbalance:
+                                          FFAppState().currentPageValue,
                                     ));
 
                                     context.pushNamed('homePage');

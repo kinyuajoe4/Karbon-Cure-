@@ -75,3 +75,14 @@ export '/intro1/intro1_widget.dart' show Intro1Widget;
 export '/activities_copy/activities_copy_widget.dart' show ActivitiesCopyWidget;
 export '/select_project/select_project_widget.dart' show SelectProjectWidget;
 export '/projectlist/projectlist_widget.dart' show ProjectlistWidget;
+export '/learntreeplanting/learntreeplanting_widget.dart'
+    show LearntreeplantingWidget;
+export '/learnsolarpower/learnsolarpower_widget.dart'
+    show LearnsolarpowerWidget;
+export '/learncookstove/learncookstove_widget.dart' show LearncookstoveWidget;
+export '/learndiffprevention/learndiffprevention_widget.dart'
+    show LearndiffpreventionWidget;
+export '/learnaircapture/learnaircapture_widget.dart'
+    show LearnaircaptureWidget;
+export '/learnhydro/learnhydro_widget.dart' show LearnhydroWidget;
+export '/addprojects/addprojects_widget.dart' show AddprojectsWidget;

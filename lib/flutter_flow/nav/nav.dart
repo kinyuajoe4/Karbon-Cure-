@@ -119,13 +119,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           asyncParams: {
             'test': getDoc(['asdfasdf'], AsdfasdfRecord.fromSnapshot),
           },
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'homePage')
-              : HomePageWidget(
-                  test: params.getParam('test', ParamType.Document),
-                  ageYrs: params.getParam('ageYrs', ParamType.int),
-                  ageMnths: params.getParam('ageMnths', ParamType.int),
-                ),
+          builder: (context, params) => HomePageWidget(
+            test: params.getParam('test', ParamType.Document),
+            ageYrs: params.getParam('ageYrs', ParamType.int),
+            ageMnths: params.getParam('ageMnths', ParamType.int),
+          ),
         ),
         FFRoute(
           name: 'myAppointments',
@@ -148,6 +146,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'profilePage',
           path: '/profilePage',
+          requireAuth: true,
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'profilePage')
               : ProfilePageWidget(
@@ -184,11 +183,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'activeusers',
           path: '/activeusers',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'activeusers')
-              : ActiveusersWidget(
-                  search: params.getParam('search', ParamType.String),
-                ),
+          builder: (context, params) => ActiveusersWidget(
+            search: params.getParam('search', ParamType.String),
+          ),
         ),
         FFRoute(
           name: 'chitchat',
@@ -228,9 +225,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'TreeAPIlist',
           path: '/treeAPIlist',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'TreeAPIlist')
-              : TreeAPIlistWidget(),
+          builder: (context, params) => TreeAPIlistWidget(),
         ),
         FFRoute(
           name: 'moreinfo',
@@ -259,9 +254,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'visitationTab',
           path: '/visitationTab',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'visitationTab')
-              : VisitationTabWidget(),
+          builder: (context, params) => VisitationTabWidget(),
         ),
         FFRoute(
           name: 'CarbonCalculator',
@@ -271,7 +264,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'activities',
           path: '/activities',
-          builder: (context, params) => ActivitiesWidget(),
+          requireAuth: true,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'activities')
+              : ActivitiesWidget(),
         ),
         FFRoute(
           name: 'tokenpage',
@@ -281,7 +277,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'learningpage',
           path: '/learningpage',
-          builder: (context, params) => LearningpageWidget(),
+          requireAuth: true,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'learningpage')
+              : LearningpageWidget(),
         ),
         FFRoute(
           name: 'adminDashboard',
@@ -493,7 +492,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'activitiesCopy',
           path: '/activitiesCopy',
-          builder: (context, params) => ActivitiesCopyWidget(),
+          asyncParams: {
+            'projectdetails': getDoc(['projects'], ProjectsRecord.fromSnapshot),
+          },
+          builder: (context, params) => ActivitiesCopyWidget(
+            projectdetails:
+                params.getParam('projectdetails', ParamType.Document),
+          ),
         ),
         FFRoute(
           name: 'selectProject',
@@ -503,7 +508,45 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'projectlist',
           path: '/projectlist',
-          builder: (context, params) => ProjectlistWidget(),
+          requireAuth: true,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'projectlist')
+              : ProjectlistWidget(),
+        ),
+        FFRoute(
+          name: 'learntreeplanting',
+          path: '/learntreeplanting',
+          builder: (context, params) => LearntreeplantingWidget(),
+        ),
+        FFRoute(
+          name: 'learnsolarpower',
+          path: '/learnsolarpower',
+          builder: (context, params) => LearnsolarpowerWidget(),
+        ),
+        FFRoute(
+          name: 'learncookstove',
+          path: '/learncookstove',
+          builder: (context, params) => LearncookstoveWidget(),
+        ),
+        FFRoute(
+          name: 'learndiffprevention',
+          path: '/learndiffprevention',
+          builder: (context, params) => LearndiffpreventionWidget(),
+        ),
+        FFRoute(
+          name: 'learnaircapture',
+          path: '/learnaircapture',
+          builder: (context, params) => LearnaircaptureWidget(),
+        ),
+        FFRoute(
+          name: 'learnhydro',
+          path: '/learnhydro',
+          builder: (context, params) => LearnhydroWidget(),
+        ),
+        FFRoute(
+          name: 'addprojects',
+          path: '/addprojects',
+          builder: (context, params) => AddprojectsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

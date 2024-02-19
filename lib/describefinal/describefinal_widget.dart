@@ -322,15 +322,24 @@ class _DescribefinalWidgetState extends State<DescribefinalWidget>
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  'You',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Outfit',
-                                        color: Color(0xFFF1F4F8),
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('projectlist');
+                                  },
+                                  child: Text(
+                                    'You',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Outfit',
+                                          color: Color(0xFFF1F4F8),
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
                                 ),
                                 RichText(
                                   textScaleFactor:

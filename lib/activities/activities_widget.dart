@@ -1,3 +1,5 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -163,24 +165,44 @@ class _ActivitiesWidgetState extends State<ActivitiesWidget>
                             height: double.infinity,
                             child: Stack(
                               children: [
-                                SingleChildScrollView(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      FlutterFlowVideoPlayer(
-                                        path: 'assets/videos/sample1.mp4',
-                                        videoType: VideoType.asset,
-                                        width: double.infinity,
-                                        height: double.infinity,
-                                        autoPlay: true,
-                                        looping: true,
-                                        showControls: false,
-                                        allowFullScreen: false,
-                                        allowPlaybackSpeedMenu: false,
-                                        pauseOnNavigate: false,
+                                StreamBuilder<UsersRecord>(
+                                  stream: UsersRecord.getDocument(
+                                      currentUserReference!),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 42.0,
+                                          height: 42.0,
+                                          child: SpinKitCircle(
+                                            color: Color(0xFF2EFB26),
+                                            size: 42.0,
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    final columnUsersRecord = snapshot.data!;
+                                    return SingleChildScrollView(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          FlutterFlowVideoPlayer(
+                                            path: 'assets/videos/sample1.mp4',
+                                            videoType: VideoType.asset,
+                                            width: double.infinity,
+                                            height: double.infinity,
+                                            autoPlay: true,
+                                            looping: true,
+                                            showControls: false,
+                                            allowFullScreen: false,
+                                            allowPlaybackSpeedMenu: false,
+                                            pauseOnNavigate: false,
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
+                                    );
+                                  },
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -205,17 +227,19 @@ class _ActivitiesWidgetState extends State<ActivitiesWidget>
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 4.0, 0.0, 0.0),
-                                        child: Text(
-                                          'Olivia',
-                                          style: FlutterFlowTheme.of(context)
-                                              .headlineMedium
-                                              .override(
-                                                fontFamily: 'Outfit',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .success,
-                                                fontWeight: FontWeight.bold,
-                                              ),
+                                        child: AuthUserStreamWidget(
+                                          builder: (context) => Text(
+                                            currentUserDisplayName,
+                                            style: FlutterFlowTheme.of(context)
+                                                .headlineMedium
+                                                .override(
+                                                  fontFamily: 'Outfit',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .success,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                          ),
                                         ),
                                       ),
                                       Padding(
@@ -271,7 +295,9 @@ class _ActivitiesWidgetState extends State<ActivitiesWidget>
                                                       ),
                                                 ),
                                                 TextSpan(
-                                                  text: ' 2.03 ',
+                                                  text: FFAppState()
+                                                      .currentPageValue
+                                                      .toString(),
                                                   style: TextStyle(
                                                     color: FlutterFlowTheme.of(
                                                             context)
@@ -1082,82 +1108,56 @@ class _ActivitiesWidgetState extends State<ActivitiesWidget>
                                       ).animateOnPageLoad(animationsMap[
                                           'columnOnPageLoadAnimation1']!),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 24.0, 0.0, 0.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'About',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Outfit',
-                                                  fontSize: 20.0,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 12.0, 0.0, 0.0),
-                                            child: Text(
-                                              'Get active on your off days and challenge your friends by planting the most trees on Saturday and Sunday! Let’s go!',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 24.0, 0.0, 0.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 12.0, 0.0, 0.0),
+                                                child: Text(
+                                                  '©Copyright 2024',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Outfit',
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 16.0, 0.0, 0.0),
-                                            child: Text(
-                                              'Location',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Outfit',
-                                                        fontSize: 20.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 12.0, 0.0, 12.0),
-                                            child: Container(
-                                              width: double.infinity,
-                                              height: 180.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                image: DecorationImage(
-                                                  fit: BoxFit.cover,
-                                                  image: Image.asset(
-                                                    'assets/images/map.png',
-                                                  ).image,
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(24.0),
                                               ),
-                                            ),
-                                          ),
-                                        ],
-                                      ).animateOnPageLoad(animationsMap[
-                                          'columnOnPageLoadAnimation2']!),
+                                              Text(
+                                                'Karbon Cure',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Outfit',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .success,
+                                                          fontSize: 15.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                            ],
+                                          ).animateOnPageLoad(animationsMap[
+                                              'columnOnPageLoadAnimation2']!),
+                                        ),
+                                      ],
                                     ),
                                   ],
                                 ),
