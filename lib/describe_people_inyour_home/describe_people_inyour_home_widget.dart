@@ -165,7 +165,6 @@ class _DescribePeopleInyourHomeWidgetState
                       videoType: VideoType.asset,
                       width: double.infinity,
                       height: double.infinity,
-                      aspectRatio: 0.56,
                       autoPlay: true,
                       looping: true,
                       showControls: false,

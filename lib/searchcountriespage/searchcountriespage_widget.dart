@@ -3,6 +3,7 @@ import '/components/emptytrees/emptytrees_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -85,34 +86,39 @@ class _SearchcountriespageWidgetState extends State<SearchcountriespageWidget> {
                                 child: TextFormField(
                                   controller: _model.searchBarController,
                                   focusNode: _model.searchBarFocusNode,
-                                  onFieldSubmitted: (_) async {
-                                    await queryCountriesRecordOnce()
-                                        .then(
-                                          (records) => _model
-                                              .simpleSearchResults = TextSearch(
-                                            records
-                                                .map(
-                                                  (record) =>
-                                                      TextSearchItem.fromTerms(
-                                                          record, [
-                                                    record.countryName!
-                                                  ]),
-                                                )
-                                                .toList(),
+                                  onChanged: (_) => EasyDebounce.debounce(
+                                    '_model.searchBarController',
+                                    Duration(milliseconds: 2000),
+                                    () async {
+                                      await queryCountriesRecordOnce()
+                                          .then(
+                                            (records) =>
+                                                _model.simpleSearchResults =
+                                                    TextSearch(
+                                              records
+                                                  .map(
+                                                    (record) => TextSearchItem
+                                                        .fromTerms(record, [
+                                                      record.countryName!
+                                                    ]),
+                                                  )
+                                                  .toList(),
+                                            )
+                                                        .search(_model
+                                                            .searchBarController
+                                                            .text)
+                                                        .map((r) => r.object)
+                                                        .toList(),
                                           )
-                                              .search(_model
-                                                  .searchBarController.text)
-                                              .map((r) => r.object)
-                                              .toList(),
-                                        )
-                                        .onError((_, __) =>
-                                            _model.simpleSearchResults = [])
-                                        .whenComplete(() => setState(() {}));
+                                          .onError((_, __) =>
+                                              _model.simpleSearchResults = [])
+                                          .whenComplete(() => setState(() {}));
 
-                                    setState(() {
-                                      _model.isLIstFull = false;
-                                    });
-                                  },
+                                      setState(() {
+                                        _model.isLIstFull = false;
+                                      });
+                                    },
+                                  ),
                                   textCapitalization: TextCapitalization.words,
                                   obscureText: false,
                                   decoration: InputDecoration(
@@ -377,6 +383,14 @@ class _SearchcountriespageWidgetState extends State<SearchcountriespageWidget> {
                                               ),
                                             }.withoutNulls,
                                           );
+
+                                          setState(() {
+                                            FFAppState().currentPageValue =
+                                                searchResultsItem
+                                                    .averageAnnualFootprint;
+                                            FFAppState().country =
+                                                searchResultsItem.countryName;
+                                          });
                                         },
                                         child: Container(
                                           width: double.infinity,

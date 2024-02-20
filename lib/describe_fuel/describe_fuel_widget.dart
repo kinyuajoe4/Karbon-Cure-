@@ -924,7 +924,10 @@ class _DescribeFuelWidgetState extends State<DescribeFuelWidget>
                                       queryParameters: {
                                         'footprintfrompreviouspage':
                                             serializeParam(
-                                          0.0,
+                                          FFAppState().currentPageValue == null
+                                              ? widget.footprintfrompreviouspage
+                                              : widget
+                                                  .footprintfrompreviouspage,
                                           ParamType.double,
                                         ),
                                       }.withoutNulls,
