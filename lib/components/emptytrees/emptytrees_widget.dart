@@ -5,18 +5,18 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'empty_list_copy_model.dart';
-export 'empty_list_copy_model.dart';
+import 'emptytrees_model.dart';
+export 'emptytrees_model.dart';
 
-class EmptyListCopyWidget extends StatefulWidget {
-  const EmptyListCopyWidget({super.key});
+class EmptytreesWidget extends StatefulWidget {
+  const EmptytreesWidget({super.key});
 
   @override
-  State<EmptyListCopyWidget> createState() => _EmptyListCopyWidgetState();
+  State<EmptytreesWidget> createState() => _EmptytreesWidgetState();
 }
 
-class _EmptyListCopyWidgetState extends State<EmptyListCopyWidget> {
-  late EmptyListCopyModel _model;
+class _EmptytreesWidgetState extends State<EmptytreesWidget> {
+  late EmptytreesModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -27,7 +27,7 @@ class _EmptyListCopyWidgetState extends State<EmptyListCopyWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => EmptyListCopyModel());
+    _model = createModel(context, () => EmptytreesModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -59,9 +59,25 @@ class _EmptyListCopyWidgetState extends State<EmptyListCopyWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'No projects Yet',
+                'No  Trees Available',
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).headlineSmall,
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 0.0),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Text(
+                  'You are all caught! You are not monitoring any trees.',
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).bodySmall,
+                ),
               ),
             ],
           ),

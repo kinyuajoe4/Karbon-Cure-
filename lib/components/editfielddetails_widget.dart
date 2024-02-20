@@ -671,8 +671,7 @@ class _EditfielddetailsWidgetState extends State<EditfielddetailsWidget> {
                                               .secondary,
                                     ),
                                   );
-
-                                  context.pushNamed('homePage');
+                                  context.safePop();
                                 }
                               },
                               text: 'delete field',

@@ -12,7 +12,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
-import 'book_appointment_widget.dart' show BookAppointmentWidget;
+import 'addfield_widget.dart' show AddfieldWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +23,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class BookAppointmentModel extends FlutterFlowModel<BookAppointmentWidget> {
+class AddfieldModel extends FlutterFlowModel<AddfieldWidget> {
   ///  State fields for stateful widgets in this component.
 
   bool isDataUploading = false;
@@ -38,28 +38,33 @@ class BookAppointmentModel extends FlutterFlowModel<BookAppointmentWidget> {
   FocusNode? personsNameFocusNode;
   TextEditingController? personsNameController;
   String? Function(BuildContext, String?)? personsNameControllerValidator;
-  // State field(s) for treename widget.
-  final treenameKey = GlobalKey();
-  FocusNode? treenameFocusNode;
-  TextEditingController? treenameController;
-  String? treenameSelectedOption;
-  String? Function(BuildContext, String?)? treenameControllerValidator;
-  // State field(s) for donor widget.
-  FocusNode? donorFocusNode;
-  TextEditingController? donorController;
-  String? Function(BuildContext, String?)? donorControllerValidator;
+  // State field(s) for problemDescription widget.
+  final problemDescriptionKey1 = GlobalKey();
+  FocusNode? problemDescriptionFocusNode1;
+  TextEditingController? problemDescriptionController1;
+  String? problemDescriptionSelectedOption1;
+  String? Function(BuildContext, String?)?
+      problemDescriptionController1Validator;
+  // State field(s) for problemDescription widget.
+  FocusNode? problemDescriptionFocusNode2;
+  TextEditingController? problemDescriptionController2;
+  String? Function(BuildContext, String?)?
+      problemDescriptionController2Validator;
+  // State field(s) for Fieldname widget.
+  FocusNode? fieldnameFocusNode;
+  TextEditingController? fieldnameController;
+  String? Function(BuildContext, String?)? fieldnameControllerValidator;
+  // State field(s) for problemDescription widget.
+  FocusNode? problemDescriptionFocusNode3;
+  TextEditingController? problemDescriptionController3;
+  String? Function(BuildContext, String?)?
+      problemDescriptionController3Validator;
   DateTime? datePicked1;
   DateTime? datePicked2;
   // Stores action output result for [Custom Action - ageInYears] action in Button widget.
   double? yearsCopy;
   // Stores action output result for [Custom Action - timeDifferenceInMonths] action in Button widget.
   int? monthsCopy;
-  // Stores action output result for [Custom Action - carbonCalculator] action in Button widget.
-  double? carboncalc;
-  // State field(s) for fieldname widget.
-  FocusNode? fieldnameFocusNode;
-  TextEditingController? fieldnameController;
-  String? Function(BuildContext, String?)? fieldnameControllerValidator;
 
   /// Initialization and disposal methods.
 
@@ -71,13 +76,16 @@ class BookAppointmentModel extends FlutterFlowModel<BookAppointmentWidget> {
     personsNameFocusNode?.dispose();
     personsNameController?.dispose();
 
-    treenameFocusNode?.dispose();
+    problemDescriptionFocusNode1?.dispose();
 
-    donorFocusNode?.dispose();
-    donorController?.dispose();
+    problemDescriptionFocusNode2?.dispose();
+    problemDescriptionController2?.dispose();
 
     fieldnameFocusNode?.dispose();
     fieldnameController?.dispose();
+
+    problemDescriptionFocusNode3?.dispose();
+    problemDescriptionController3?.dispose();
   }
 
   /// Action blocks are added here.

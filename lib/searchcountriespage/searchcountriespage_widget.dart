@@ -1,11 +1,8 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/empty_list/empty_list_widget.dart';
-import '/components/testfield_widget.dart';
+import '/components/emptytrees/emptytrees_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -325,29 +322,6 @@ class _SearchcountriespageWidgetState extends State<SearchcountriespageWidget> {
                                                         .bodyLarge,
                                                   ),
                                                 ),
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    await columnCountriesRecord
-                                                        .reference
-                                                        .delete();
-                                                  },
-                                                  child: Text(
-                                                    columnCountriesRecord
-                                                        .averageAnnualFootprint
-                                                        .toString(),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
-                                                  ),
-                                                ),
                                               ],
                                             ),
                                           ),
@@ -369,7 +343,7 @@ class _SearchcountriespageWidgetState extends State<SearchcountriespageWidget> {
                               final searchResults =
                                   _model.simpleSearchResults.toList();
                               if (searchResults.isEmpty) {
-                                return EmptyListWidget();
+                                return EmptytreesWidget();
                               }
                               return SingleChildScrollView(
                                 child: Column(
@@ -388,33 +362,21 @@ class _SearchcountriespageWidgetState extends State<SearchcountriespageWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          await showModalBottomSheet(
-                                            isScrollControlled: true,
-                                            backgroundColor: Colors.transparent,
-                                            enableDrag: false,
-                                            context: context,
-                                            builder: (context) {
-                                              return GestureDetector(
-                                                onTap: () => _model.unfocusNode
-                                                        .canRequestFocus
-                                                    ? FocusScope.of(context)
-                                                        .requestFocus(
-                                                            _model.unfocusNode)
-                                                    : FocusScope.of(context)
-                                                        .unfocus(),
-                                                child: Padding(
-                                                  padding:
-                                                      MediaQuery.viewInsetsOf(
-                                                          context),
-                                                  child: TestfieldWidget(
-                                                    countyAv: searchResultsItem
-                                                        .reference,
-                                                  ),
-                                                ),
-                                              );
-                                            },
-                                          ).then(
-                                              (value) => safeSetState(() {}));
+                                          context.pushNamed(
+                                            'confirmcountry',
+                                            queryParameters: {
+                                              'country': serializeParam(
+                                                searchResultsItem.countryName,
+                                                ParamType.String,
+                                              ),
+                                              'averageFootprint':
+                                                  serializeParam(
+                                                searchResultsItem
+                                                    .averageAnnualFootprint,
+                                                ParamType.double,
+                                              ),
+                                            }.withoutNulls,
+                                          );
                                         },
                                         child: Container(
                                           width: double.infinity,
@@ -460,38 +422,6 @@ class _SearchcountriespageWidgetState extends State<SearchcountriespageWidget> {
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyLarge,
-                                                  ),
-                                                ),
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    await CountriesRecord
-                                                        .collection
-                                                        .doc()
-                                                        .set(
-                                                            createCountriesRecordData(
-                                                          countryName:
-                                                              searchResultsItem
-                                                                  .reference.id,
-                                                          selectedCountry:
-                                                              searchResultsItem
-                                                                  .reference.id,
-                                                        ));
-                                                  },
-                                                  child: Text(
-                                                    searchResultsItem
-                                                        .averageAnnualFootprint
-                                                        .toString(),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
                                                   ),
                                                 ),
                                               ],

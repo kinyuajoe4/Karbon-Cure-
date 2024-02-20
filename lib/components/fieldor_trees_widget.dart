@@ -1,5 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/components/booking_old/booking_old_widget.dart';
+import '/components/addtreecopy/addtreecopy_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -82,7 +82,7 @@ class _FieldorTreesWidgetState extends State<FieldorTreesWidget> {
                       padding: MediaQuery.viewInsetsOf(context),
                       child: Container(
                         height: MediaQuery.sizeOf(context).height * 1.0,
-                        child: BookingOldWidget(
+                        child: AddtreecopyWidget(
                           userProfile: currentUserReference,
                         ),
                       ),

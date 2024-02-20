@@ -21,11 +21,9 @@ export 'appointment_details_model.dart';
 class AppointmentDetailsWidget extends StatefulWidget {
   const AppointmentDetailsWidget({
     super.key,
-    this.appointmentDetails,
     this.treedetails,
   });
 
-  final DocumentReference? appointmentDetails;
   final DocumentReference? treedetails;
 
   @override

@@ -32,14 +32,6 @@ class CompleteProfileModel extends FlutterFlowModel<CompleteProfileWidget> {
   FocusNode? yourNameFocusNode;
   TextEditingController? yourNameController;
   String? Function(BuildContext, String?)? yourNameControllerValidator;
-  // State field(s) for yourAge widget.
-  FocusNode? yourAgeFocusNode;
-  TextEditingController? yourAgeController;
-  String? Function(BuildContext, String?)? yourAgeControllerValidator;
-  // State field(s) for phoneNumber widget.
-  FocusNode? phoneNumberFocusNode;
-  TextEditingController? phoneNumberController;
-  String? Function(BuildContext, String?)? phoneNumberControllerValidator;
   // State field(s) for RadioButton widget.
   FormFieldController<String>? radioButtonValueController;
 
@@ -53,12 +45,6 @@ class CompleteProfileModel extends FlutterFlowModel<CompleteProfileWidget> {
     unfocusNode.dispose();
     yourNameFocusNode?.dispose();
     yourNameController?.dispose();
-
-    yourAgeFocusNode?.dispose();
-    yourAgeController?.dispose();
-
-    phoneNumberFocusNode?.dispose();
-    phoneNumberController?.dispose();
   }
 
   /// Action blocks are added here.

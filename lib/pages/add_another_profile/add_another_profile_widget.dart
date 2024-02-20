@@ -32,17 +32,8 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
     super.initState();
     _model = createModel(context, () => AddAnotherProfileModel());
 
-    _model.phoneNumberController1 ??= TextEditingController();
-    _model.phoneNumberFocusNode1 ??= FocusNode();
-
-    _model.phoneNumberController2 ??= TextEditingController();
-    _model.phoneNumberFocusNode2 ??= FocusNode();
-
-    _model.phoneNumberController3 ??= TextEditingController();
-    _model.phoneNumberFocusNode3 ??= FocusNode();
-
-    _model.phoneNumberController4 ??= TextEditingController();
-    _model.phoneNumberFocusNode4 ??= FocusNode();
+    _model.phoneNumberController ??= TextEditingController();
+    _model.phoneNumberFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -260,8 +251,8 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
                       child: TextFormField(
-                        controller: _model.phoneNumberController1,
-                        focusNode: _model.phoneNumberFocusNode1,
+                        controller: _model.phoneNumberController,
+                        focusNode: _model.phoneNumberFocusNode,
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Persons Name',
@@ -317,205 +308,7 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                               fontFamily: 'Outfit',
                               color: FlutterFlowTheme.of(context).secondaryText,
                             ),
-                        validator: _model.phoneNumberController1Validator
-                            .asValidator(context),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
-                      child: TextFormField(
-                        controller: _model.phoneNumberController2,
-                        focusNode: _model.phoneNumberFocusNode2,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          labelText: 'Phone Number',
-                          labelStyle: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Outfit',
-                                color: FlutterFlowTheme.of(context).grayLight,
-                              ),
-                          hintText: 'i.e. =+25479',
-                          hintStyle: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Outfit',
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                              ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          filled: true,
-                          fillColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          contentPadding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 24.0, 20.0, 24.0),
-                        ),
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Outfit',
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                            ),
-                        keyboardType: TextInputType.phone,
-                        validator: _model.phoneNumberController2Validator
-                            .asValidator(context),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
-                      child: TextFormField(
-                        controller: _model.phoneNumberController3,
-                        focusNode: _model.phoneNumberFocusNode3,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          labelText: 'National ID/ Passport no.',
-                          labelStyle: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Outfit',
-                                color: FlutterFlowTheme.of(context).grayLight,
-                              ),
-                          hintText:
-                              'Indicate your ID number or any official doc Number',
-                          hintStyle: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Outfit',
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                              ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          filled: true,
-                          fillColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          contentPadding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 24.0, 20.0, 24.0),
-                        ),
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Outfit',
-                              color: FlutterFlowTheme.of(context).textColor,
-                            ),
-                        validator: _model.phoneNumberController3Validator
-                            .asValidator(context),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
-                      child: TextFormField(
-                        controller: _model.phoneNumberController4,
-                        focusNode: _model.phoneNumberFocusNode4,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          labelText: 'Location',
-                          labelStyle: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Outfit',
-                                color: FlutterFlowTheme.of(context).grayLight,
-                              ),
-                          hintText: 'Please enter your location',
-                          hintStyle: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Outfit',
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                              ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          filled: true,
-                          fillColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          contentPadding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 24.0, 20.0, 24.0),
-                        ),
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Outfit',
-                              color: FlutterFlowTheme.of(context).textColor,
-                            ),
-                        keyboardType: TextInputType.streetAddress,
-                        validator: _model.phoneNumberController4Validator
+                        validator: _model.phoneNumberControllerValidator
                             .asValidator(context),
                       ),
                     ),
@@ -584,7 +377,7 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          context.pushNamed('homePage');
+                          context.pushNamed('activities');
                         },
                         text: 'Complete Profile',
                         options: FFButtonOptions(

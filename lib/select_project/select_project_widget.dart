@@ -258,42 +258,60 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                     topRight: Radius.circular(15.0),
                                   ),
                                 ),
-                                child: Icon(
-                                  Icons.arrow_back,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 24.0,
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.safePop();
+                                  },
+                                  child: Icon(
+                                    Icons.arrow_back,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 24.0,
+                                  ),
                                 ),
                               ),
                             ),
-                            Container(
-                              width: 60.0,
-                              height: 50.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(15.0),
-                                  bottomRight: Radius.circular(15.0),
-                                  topLeft: Radius.circular(15.0),
-                                  topRight: Radius.circular(15.0),
-                                ),
-                              ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'skip',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Outfit',
-                                          fontSize: 17.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('chooseplanpage');
+                              },
+                              child: Container(
+                                width: 60.0,
+                                height: 50.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(15.0),
+                                    bottomRight: Radius.circular(15.0),
+                                    topLeft: Radius.circular(15.0),
+                                    topRight: Radius.circular(15.0),
                                   ),
-                                ],
+                                ),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'skip',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Outfit',
+                                            fontSize: 17.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],
@@ -363,8 +381,8 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                       .primaryBackground,
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
-                                    image: Image.network(
-                                      'https://images.unsplash.com/photo-1474031317822-f51f48735ddd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+                                    image: Image.asset(
+                                      'assets/images/images_(6).jpeg',
                                     ).image,
                                   ),
                                   borderRadius: BorderRadius.circular(24.0),
@@ -385,6 +403,9 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Outfit',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .success,
                                                   fontSize: 15.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -395,6 +416,9 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Outfit',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .success,
                                                   fontSize: 15.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -498,8 +522,8 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                       .primaryBackground,
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
-                                    image: Image.network(
-                                      'https://images.unsplash.com/photo-1604004555489-723a93d6ce74?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+                                    image: Image.asset(
+                                      'assets/images/Solar_0.jpg',
                                     ).image,
                                   ),
                                   borderRadius: BorderRadius.circular(24.0),
@@ -520,6 +544,9 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Outfit',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .success,
                                                   fontSize: 15.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -530,6 +557,9 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Outfit',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .success,
                                                   fontSize: 15.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -650,8 +680,8 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                       .primaryBackground,
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
-                                    image: Image.network(
-                                      'https://images.unsplash.com/photo-1474031317822-f51f48735ddd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+                                    image: Image.asset(
+                                      'assets/images/SFR-ISO.jpeg',
                                     ).image,
                                   ),
                                   borderRadius: BorderRadius.circular(24.0),
@@ -672,6 +702,9 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Outfit',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .success,
                                                   fontSize: 15.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -682,6 +715,9 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Outfit',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .success,
                                                   fontSize: 15.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -787,8 +823,8 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                       .primaryBackground,
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
-                                    image: Image.network(
-                                      'https://images.unsplash.com/photo-1474031317822-f51f48735ddd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+                                    image: Image.asset(
+                                      'assets/images/PICTURE-1-1024x576.jpeg',
                                     ).image,
                                   ),
                                   borderRadius: BorderRadius.circular(24.0),
@@ -809,6 +845,9 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Outfit',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .success,
                                                   fontSize: 15.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -819,6 +858,9 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Outfit',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .success,
                                                   fontSize: 15.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -924,8 +966,8 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                       .primaryBackground,
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
-                                    image: Image.network(
-                                      'https://images.unsplash.com/photo-1474031317822-f51f48735ddd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+                                    image: Image.asset(
+                                      'assets/images/pumped-hydro-storage-dam-flowing-beauty.jpg',
                                     ).image,
                                   ),
                                   borderRadius: BorderRadius.circular(24.0),
@@ -946,6 +988,9 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Outfit',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .success,
                                                   fontSize: 15.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -956,6 +1001,9 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Outfit',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .success,
                                                   fontSize: 15.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -1059,8 +1107,8 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                       .primaryBackground,
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
-                                    image: Image.network(
-                                      'https://images.unsplash.com/photo-1474031317822-f51f48735ddd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+                                    image: Image.asset(
+                                      'assets/images/climeworks2.png',
                                     ).image,
                                   ),
                                   borderRadius: BorderRadius.circular(24.0),
@@ -1081,6 +1129,9 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Outfit',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .success,
                                                   fontSize: 15.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -1091,6 +1142,9 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Outfit',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .success,
                                                   fontSize: 15.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -1193,8 +1247,26 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                 (_model.checkboxValue5 == true) ||
                                 (_model.checkboxValue6 == true))
                               FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Thaks  for Voting 👏 🏆',
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .tertiary,
+                                          fontWeight: FontWeight.w800,
+                                          fontSize: 19.0,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .alternate,
+                                    ),
+                                  );
+
+                                  context.pushNamed('chooseplanpage');
                                 },
                                 text: 'Vote',
                                 options: FFButtonOptions(

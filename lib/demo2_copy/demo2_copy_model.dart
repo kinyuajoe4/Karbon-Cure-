@@ -1,7 +1,6 @@
 import '/backend/backend.dart';
-import '/components/book_appointment/book_appointment_widget.dart';
-import '/components/editdate_widget.dart';
-import '/components/empty_list/empty_list_widget.dart';
+import '/components/addtree/addtree_widget.dart';
+import '/components/emptytrees/emptytrees_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -26,12 +25,6 @@ class Demo2CopyModel extends FlutterFlowModel<Demo2CopyWidget> {
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
-
-  // State field(s) for Checkbox widget.
-
-  Map<MytreesRecord, bool> checkboxValueMap = {};
-  List<MytreesRecord> get checkboxCheckedItems =>
-      checkboxValueMap.entries.where((e) => e.value).map((e) => e.key).toList();
 
   /// Initialization and disposal methods.
 

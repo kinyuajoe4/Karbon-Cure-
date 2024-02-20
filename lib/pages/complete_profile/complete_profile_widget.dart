@@ -87,7 +87,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
         ),
       ],
     ),
-    'textFieldOnPageLoadAnimation1': AnimationInfo(
+    'textFieldOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
@@ -107,32 +107,6 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 100.ms,
-          duration: 600.ms,
-          begin: Offset(1.0, 1.0),
-          end: Offset(1.0, 1.0),
-        ),
-      ],
-    ),
-    'textFieldOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 200.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 200.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 40.0),
-          end: Offset(0.0, 0.0),
-        ),
-        ScaleEffect(
-          curve: Curves.easeInOut,
-          delay: 200.ms,
           duration: 600.ms,
           begin: Offset(1.0, 1.0),
           end: Offset(1.0, 1.0),
@@ -253,12 +227,6 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
     _model.yourNameController ??= TextEditingController();
     _model.yourNameFocusNode ??= FocusNode();
 
-    _model.yourAgeController ??= TextEditingController();
-    _model.yourAgeFocusNode ??= FocusNode();
-
-    _model.phoneNumberController ??= TextEditingController();
-    _model.phoneNumberFocusNode ??= FocusNode();
-
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -337,14 +305,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                   constraints: BoxConstraints(
                     maxWidth: 600.0,
                   ),
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.fitWidth,
-                      image: Image.asset(
-                        'assets/images/page_bg_transparent@2x.png',
-                      ).image,
-                    ),
-                  ),
+                  decoration: BoxDecoration(),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
@@ -527,148 +488,8 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                                   FlutterFlowTheme.of(context).textColor,
                               validator: _model.yourNameControllerValidator
                                   .asValidator(context),
-                            ).animateOnPageLoad(animationsMap[
-                                'textFieldOnPageLoadAnimation1']!),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 20.0, 20.0, 0.0),
-                            child: TextFormField(
-                              controller: _model.yourAgeController,
-                              focusNode: _model.yourAgeFocusNode,
-                              autofillHints: [AutofillHints.telephoneNumber],
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                labelText: 'Phone Number:',
-                                labelStyle: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      fontFamily: 'Outfit',
-                                      color: Color(0xFF0C8D00),
-                                    ),
-                                hintText: 'i.e +254792426',
-                                hintStyle: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      fontFamily: 'Outfit',
-                                      color: Color(0xFF0C8D00),
-                                    ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                errorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                filled: true,
-                                fillColor: Color(0xFF1A1F24),
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 24.0, 20.0, 24.0),
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Outfit',
-                                    color: Color(0xFF0C8D00),
-                                  ),
-                              keyboardType: TextInputType.number,
-                              cursorColor:
-                                  FlutterFlowTheme.of(context).primaryText,
-                              validator: _model.yourAgeControllerValidator
-                                  .asValidator(context),
-                            ).animateOnPageLoad(animationsMap[
-                                'textFieldOnPageLoadAnimation2']!),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 20.0, 20.0, 0.0),
-                            child: TextFormField(
-                              controller: _model.phoneNumberController,
-                              focusNode: _model.phoneNumberFocusNode,
-                              autofillHints: [AutofillHints.email],
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                labelText: 'National ID/ Passport no.',
-                                labelStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Outfit',
-                                      color: FlutterFlowTheme.of(context)
-                                          .grayLight,
-                                    ),
-                                hintText:
-                                    'Indicate your ID number or any official doc Number',
-                                hintStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Outfit',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                    ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                errorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                filled: true,
-                                fillColor: Color(0xFF1A1F24),
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 24.0, 20.0, 24.0),
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Outfit',
-                                    color:
-                                        FlutterFlowTheme.of(context).textColor,
-                                  ),
-                              validator: _model.phoneNumberControllerValidator
-                                  .asValidator(context),
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['textFieldOnPageLoadAnimation']!),
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -797,8 +618,6 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                                         .update(createUsersRecordData(
                                       displayName:
                                           _model.yourNameController.text,
-                                      age: int.tryParse(
-                                          _model.yourAgeController.text),
                                       userSex: _model.radioButtonValue,
                                       photoUrl: _model.uploadedFileUrl,
                                       email: '',
@@ -812,7 +631,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                                           FFAppState().currentPageValue,
                                     ));
 
-                                    context.pushNamed('homePage');
+                                    context.pushNamed('activities');
                                   },
                                   text: 'Complete Profile',
                                   options: FFButtonOptions(

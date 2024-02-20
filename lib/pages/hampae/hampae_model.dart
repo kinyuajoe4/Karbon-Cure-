@@ -7,14 +7,14 @@ import '/components/disp3/disp3_widget.dart';
 import '/components/disp5_widget.dart';
 import '/components/disp6_widget.dart';
 import '/components/editfielddetails_widget.dart';
-import '/components/empty_list2_widget.dart';
+import '/components/emptypersonalproject_widget.dart';
 import '/components/fieldor_trees_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'home_page_widget.dart' show HomePageWidget;
+import 'hampae_widget.dart' show HampaeWidget;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -27,7 +27,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 
-class HomePageModel extends FlutterFlowModel<HomePageWidget> {
+class HampaeModel extends FlutterFlowModel<HampaeWidget> {
   ///  State fields for stateful widgets in this page.
 
   // Model for disp5 component.

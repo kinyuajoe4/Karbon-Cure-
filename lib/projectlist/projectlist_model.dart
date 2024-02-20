@@ -1,6 +1,5 @@
 import '/backend/backend.dart';
-import '/components/empty_list2_widget.dart';
-import '/components/empty_list_copy/empty_list_copy_widget.dart';
+import '/components/emptyproject/emptyproject_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';

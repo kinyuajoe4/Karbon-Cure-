@@ -1,6 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/empty_list/empty_list_widget.dart';
+import '/components/emptytrees/emptytrees_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -129,7 +129,7 @@ class _MyAppointmentsWidgetState extends State<MyAppointmentsWidget> {
                           snapshot.data!;
                       if (listViewMytreesRecordList.isEmpty) {
                         return Center(
-                          child: EmptyListWidget(),
+                          child: EmptytreesWidget(),
                         );
                       }
                       return ListView.builder(

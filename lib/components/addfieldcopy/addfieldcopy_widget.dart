@@ -12,11 +12,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'booking_old_copy_model.dart';
-export 'booking_old_copy_model.dart';
+import 'addfieldcopy_model.dart';
+export 'addfieldcopy_model.dart';
 
-class BookingOldCopyWidget extends StatefulWidget {
-  const BookingOldCopyWidget({
+class AddfieldcopyWidget extends StatefulWidget {
+  const AddfieldcopyWidget({
     super.key,
     this.userProfile,
     this.location,
@@ -30,11 +30,11 @@ class BookingOldCopyWidget extends StatefulWidget {
   final DocumentReference? treedetails;
 
   @override
-  State<BookingOldCopyWidget> createState() => _BookingOldCopyWidgetState();
+  State<AddfieldcopyWidget> createState() => _AddfieldcopyWidgetState();
 }
 
-class _BookingOldCopyWidgetState extends State<BookingOldCopyWidget> {
-  late BookingOldCopyModel _model;
+class _AddfieldcopyWidgetState extends State<AddfieldcopyWidget> {
+  late AddfieldcopyModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -45,7 +45,7 @@ class _BookingOldCopyWidgetState extends State<BookingOldCopyWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => BookingOldCopyModel());
+    _model = createModel(context, () => AddfieldcopyModel());
 
     _model.emailFocusNode ??= FocusNode();
 
@@ -633,8 +633,7 @@ class _BookingOldCopyWidgetState extends State<BookingOldCopyWidget> {
                                 await MytreesRecord.createDoc(
                                         containerMytreesRecord!.parentReference)
                                     .set(createMytreesRecordData());
-
-                                context.pushNamed('homePage');
+                                context.safePop();
                               },
                               text: 'Add Field',
                               options: FFButtonOptions(

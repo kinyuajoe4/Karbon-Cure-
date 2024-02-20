@@ -27,21 +27,9 @@ class AddAnotherProfileModel extends FlutterFlowModel<AddAnotherProfileWidget> {
   String uploadedFileUrl2 = '';
 
   // State field(s) for phoneNumber widget.
-  FocusNode? phoneNumberFocusNode1;
-  TextEditingController? phoneNumberController1;
-  String? Function(BuildContext, String?)? phoneNumberController1Validator;
-  // State field(s) for phoneNumber widget.
-  FocusNode? phoneNumberFocusNode2;
-  TextEditingController? phoneNumberController2;
-  String? Function(BuildContext, String?)? phoneNumberController2Validator;
-  // State field(s) for phoneNumber widget.
-  FocusNode? phoneNumberFocusNode3;
-  TextEditingController? phoneNumberController3;
-  String? Function(BuildContext, String?)? phoneNumberController3Validator;
-  // State field(s) for phoneNumber widget.
-  FocusNode? phoneNumberFocusNode4;
-  TextEditingController? phoneNumberController4;
-  String? Function(BuildContext, String?)? phoneNumberController4Validator;
+  FocusNode? phoneNumberFocusNode;
+  TextEditingController? phoneNumberController;
+  String? Function(BuildContext, String?)? phoneNumberControllerValidator;
   // State field(s) for RadioButton widget.
   FormFieldController<String>? radioButtonValueController;
 
@@ -52,17 +40,8 @@ class AddAnotherProfileModel extends FlutterFlowModel<AddAnotherProfileWidget> {
 
   @override
   void dispose() {
-    phoneNumberFocusNode1?.dispose();
-    phoneNumberController1?.dispose();
-
-    phoneNumberFocusNode2?.dispose();
-    phoneNumberController2?.dispose();
-
-    phoneNumberFocusNode3?.dispose();
-    phoneNumberController3?.dispose();
-
-    phoneNumberFocusNode4?.dispose();
-    phoneNumberController4?.dispose();
+    phoneNumberFocusNode?.dispose();
+    phoneNumberController?.dispose();
   }
 
   /// Action blocks are added here.

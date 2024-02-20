@@ -13,11 +13,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'booking_old_model.dart';
-export 'booking_old_model.dart';
+import 'addtreecopy_model.dart';
+export 'addtreecopy_model.dart';
 
-class BookingOldWidget extends StatefulWidget {
-  const BookingOldWidget({
+class AddtreecopyWidget extends StatefulWidget {
+  const AddtreecopyWidget({
     super.key,
     this.userProfile,
     this.location,
@@ -27,11 +27,11 @@ class BookingOldWidget extends StatefulWidget {
   final FFPlace? location;
 
   @override
-  State<BookingOldWidget> createState() => _BookingOldWidgetState();
+  State<AddtreecopyWidget> createState() => _AddtreecopyWidgetState();
 }
 
-class _BookingOldWidgetState extends State<BookingOldWidget> {
-  late BookingOldModel _model;
+class _AddtreecopyWidgetState extends State<AddtreecopyWidget> {
+  late AddtreecopyModel _model;
 
   LatLng? currentUserLocationValue;
 
@@ -44,7 +44,7 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => BookingOldModel());
+    _model = createModel(context, () => AddtreecopyModel());
 
     _model.emailFocusNode ??= FocusNode();
 
@@ -572,7 +572,7 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
                       children: [
                         FFButtonWidget(
                           onPressed: () async {
-                            context.pushNamed('homePage');
+                            context.safePop();
                           },
                           text: 'Cancel',
                           options: FFButtonOptions(

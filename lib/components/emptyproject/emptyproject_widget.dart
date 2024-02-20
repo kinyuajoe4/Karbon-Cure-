@@ -5,18 +5,18 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'empty_list_model.dart';
-export 'empty_list_model.dart';
+import 'emptyproject_model.dart';
+export 'emptyproject_model.dart';
 
-class EmptyListWidget extends StatefulWidget {
-  const EmptyListWidget({super.key});
+class EmptyprojectWidget extends StatefulWidget {
+  const EmptyprojectWidget({super.key});
 
   @override
-  State<EmptyListWidget> createState() => _EmptyListWidgetState();
+  State<EmptyprojectWidget> createState() => _EmptyprojectWidgetState();
 }
 
-class _EmptyListWidgetState extends State<EmptyListWidget> {
-  late EmptyListModel _model;
+class _EmptyprojectWidgetState extends State<EmptyprojectWidget> {
+  late EmptyprojectModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -27,7 +27,7 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => EmptyListModel());
+    _model = createModel(context, () => EmptyprojectModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -59,25 +59,9 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'No  Trees Available',
+                'No projects Yet',
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).headlineSmall,
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 0.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Text(
-                  'You are all caught! You are not monitoring any trees.',
-                  textAlign: TextAlign.center,
-                  style: FlutterFlowTheme.of(context).bodySmall,
-                ),
               ),
             ],
           ),

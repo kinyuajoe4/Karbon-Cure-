@@ -1,4 +1,4 @@
-import '/components/book_appointment/book_appointment_widget.dart';
+import '/components/addtree/addtree_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -84,7 +84,7 @@ class _PopoWidgetState extends State<PopoWidget> {
                       builder: (context) {
                         return Padding(
                           padding: MediaQuery.viewInsetsOf(context),
-                          child: BookAppointmentWidget(),
+                          child: AddtreeWidget(),
                         );
                       },
                     ).then((value) => safeSetState(() {}));

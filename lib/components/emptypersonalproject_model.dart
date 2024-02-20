@@ -1,13 +1,16 @@
+import '/components/fieldor_trees_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'empty_list_copy_widget.dart' show EmptyListCopyWidget;
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'emptypersonalproject_widget.dart' show EmptypersonalprojectWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class EmptyListCopyModel extends FlutterFlowModel<EmptyListCopyWidget> {
+class EmptypersonalprojectModel
+    extends FlutterFlowModel<EmptypersonalprojectWidget> {
   /// Initialization and disposal methods.
 
   @override

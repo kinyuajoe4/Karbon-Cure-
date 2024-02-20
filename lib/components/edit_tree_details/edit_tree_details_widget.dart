@@ -711,8 +711,7 @@ class _EditTreeDetailsWidgetState extends State<EditTreeDetailsWidget> {
                                       .update(createUsersRecordData(
                                     tokenbalance: _model.toktok,
                                   ));
-
-                                  context.pushNamed('homePage');
+                                  context.safePop();
 
                                   setState(() {});
                                 },

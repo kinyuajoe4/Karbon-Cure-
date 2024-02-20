@@ -32,26 +32,6 @@ class EditProfileModel extends FlutterFlowModel<EditProfileWidget> {
   FocusNode? yourEmailFocusNode;
   TextEditingController? yourEmailController;
   String? Function(BuildContext, String?)? yourEmailControllerValidator;
-  // State field(s) for yourAge widget.
-  FocusNode? yourAgeFocusNode;
-  TextEditingController? yourAgeController;
-  String? Function(BuildContext, String?)? yourAgeControllerValidator;
-  // State field(s) for speciality widget.
-  FocusNode? specialityFocusNode1;
-  TextEditingController? specialityController1;
-  String? Function(BuildContext, String?)? specialityController1Validator;
-  // State field(s) for speciality widget.
-  FocusNode? specialityFocusNode2;
-  TextEditingController? specialityController2;
-  String? Function(BuildContext, String?)? specialityController2Validator;
-  // State field(s) for Yourschedule widget.
-  FocusNode? yourscheduleFocusNode;
-  TextEditingController? yourscheduleController;
-  String? Function(BuildContext, String?)? yourscheduleControllerValidator;
-  // State field(s) for yourAilments widget.
-  FocusNode? yourAilmentsFocusNode;
-  TextEditingController? yourAilmentsController;
-  String? Function(BuildContext, String?)? yourAilmentsControllerValidator;
   // State field(s) for RadioButton widget.
   FormFieldController<String>? radioButtonValueController;
 
@@ -67,21 +47,6 @@ class EditProfileModel extends FlutterFlowModel<EditProfileWidget> {
 
     yourEmailFocusNode?.dispose();
     yourEmailController?.dispose();
-
-    yourAgeFocusNode?.dispose();
-    yourAgeController?.dispose();
-
-    specialityFocusNode1?.dispose();
-    specialityController1?.dispose();
-
-    specialityFocusNode2?.dispose();
-    specialityController2?.dispose();
-
-    yourscheduleFocusNode?.dispose();
-    yourscheduleController?.dispose();
-
-    yourAilmentsFocusNode?.dispose();
-    yourAilmentsController?.dispose();
   }
 
   /// Action blocks are added here.

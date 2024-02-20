@@ -114,12 +114,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => OnboardingWidget(),
         ),
         FFRoute(
-          name: 'homePage',
-          path: '/homePage',
+          name: 'hampae',
+          path: '/hampae',
           asyncParams: {
             'test': getDoc(['asdfasdf'], AsdfasdfRecord.fromSnapshot),
           },
-          builder: (context, params) => HomePageWidget(
+          builder: (context, params) => HampaeWidget(
             test: params.getParam('test', ParamType.Document),
             ageYrs: params.getParam('ageYrs', ParamType.int),
             ageMnths: params.getParam('ageMnths', ParamType.int),
@@ -134,8 +134,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'appointmentDetails',
           path: '/appointmentDetails',
           builder: (context, params) => AppointmentDetailsWidget(
-            appointmentDetails: params.getParam('appointmentDetails',
-                ParamType.DocumentReference, false, ['appointments']),
             treedetails: params.getParam(
                 'treedetails',
                 ParamType.DocumentReference,
@@ -547,6 +545,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'addprojects',
           path: '/addprojects',
           builder: (context, params) => AddprojectsWidget(),
+        ),
+        FFRoute(
+          name: 'chooseplanpage',
+          path: '/chooseplanpage',
+          builder: (context, params) => ChooseplanpageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -728,10 +731,10 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: FlutterFlowTheme.of(context).background,
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
                   child: Image.asset(
-                    'assets/images/cropped-cropped-fnblogo-1-removebg-preview.png',
-                    fit: BoxFit.fitWidth,
+                    'assets/images/Rectangle_15.png',
+                    fit: BoxFit.scaleDown,
                   ),
                 )
               : page;

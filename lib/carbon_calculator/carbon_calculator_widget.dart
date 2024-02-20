@@ -1,6 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/empty_list/empty_list_widget.dart';
+import '/components/emptytrees/emptytrees_widget.dart';
 import '/components/locationcomp_widget.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -148,7 +148,7 @@ class _CarbonCalculatorWidgetState extends State<CarbonCalculatorWidget> {
                               List<MytreesRecord> dataTableMytreesRecordList =
                                   snapshot.data!;
                               if (dataTableMytreesRecordList.isEmpty) {
-                                return EmptyListWidget();
+                                return EmptytreesWidget();
                               }
                               return DataTable2(
                                 columns: [

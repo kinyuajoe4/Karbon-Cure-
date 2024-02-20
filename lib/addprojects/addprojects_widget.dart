@@ -1380,6 +1380,7 @@ class _AddprojectsWidgetState extends State<AddprojectsWidget>
                                       locationfact: _model.lfactController.text,
                                       leadphoto: _model.uploadedFileUrl,
                                     ));
+                                context.safePop();
                               },
                               text: 'Add Trees',
                               options: FFButtonOptions(

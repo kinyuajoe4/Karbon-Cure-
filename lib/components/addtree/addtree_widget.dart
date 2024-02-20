@@ -21,11 +21,11 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'book_appointment_model.dart';
-export 'book_appointment_model.dart';
+import 'addtree_model.dart';
+export 'addtree_model.dart';
 
-class BookAppointmentWidget extends StatefulWidget {
-  const BookAppointmentWidget({
+class AddtreeWidget extends StatefulWidget {
+  const AddtreeWidget({
     super.key,
     this.userProfile,
     this.location,
@@ -39,12 +39,12 @@ class BookAppointmentWidget extends StatefulWidget {
   final FielddetailsRecord? treedetails;
 
   @override
-  State<BookAppointmentWidget> createState() => _BookAppointmentWidgetState();
+  State<AddtreeWidget> createState() => _AddtreeWidgetState();
 }
 
-class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
+class _AddtreeWidgetState extends State<AddtreeWidget>
     with TickerProviderStateMixin {
-  late BookAppointmentModel _model;
+  late AddtreeModel _model;
 
   LatLng? currentUserLocationValue;
 
@@ -268,7 +268,7 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => BookAppointmentModel());
+    _model = createModel(context, () => AddtreeModel());
 
     _model.personsNameFocusNode ??= FocusNode();
 
@@ -1292,9 +1292,45 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
                                             await actions.ageInYears(
                                           _model.datePicked1,
                                         );
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              '1 complete',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary,
+                                          ),
+                                        );
                                         _model.monthsCopy = await actions
                                             .timeDifferenceInMonths(
                                           _model.datePicked1,
+                                        );
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              '2 complete',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary,
+                                          ),
                                         );
                                         _model.carboncalc =
                                             await actions.carbonCalculator(
@@ -1303,6 +1339,24 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
                                               ? 1.0
                                               : _model.yearsCopy!,
                                           1.0,
+                                        );
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              '3 complete',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary,
+                                          ),
                                         );
 
                                         await MytreesRecord.createDoc(
@@ -1326,6 +1380,24 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
                                           carbonabsorbed: _model.carboncalc,
                                           treeStatus: '',
                                         ));
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              '4 complete',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary,
+                                          ),
+                                        );
                                         context.safePop();
 
                                         setState(() {});

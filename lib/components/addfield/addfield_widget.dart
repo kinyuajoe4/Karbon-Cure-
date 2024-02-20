@@ -21,11 +21,11 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'book_appointment_copy_model.dart';
-export 'book_appointment_copy_model.dart';
+import 'addfield_model.dart';
+export 'addfield_model.dart';
 
-class BookAppointmentCopyWidget extends StatefulWidget {
-  const BookAppointmentCopyWidget({
+class AddfieldWidget extends StatefulWidget {
+  const AddfieldWidget({
     super.key,
     this.userProfile,
     this.location,
@@ -39,13 +39,12 @@ class BookAppointmentCopyWidget extends StatefulWidget {
   final FielddetailsRecord? treedetails;
 
   @override
-  State<BookAppointmentCopyWidget> createState() =>
-      _BookAppointmentCopyWidgetState();
+  State<AddfieldWidget> createState() => _AddfieldWidgetState();
 }
 
-class _BookAppointmentCopyWidgetState extends State<BookAppointmentCopyWidget>
+class _AddfieldWidgetState extends State<AddfieldWidget>
     with TickerProviderStateMixin {
-  late BookAppointmentCopyModel _model;
+  late AddfieldModel _model;
 
   final animationsMap = {
     'dropDownOnPageLoadAnimation': AnimationInfo(
@@ -319,7 +318,7 @@ class _BookAppointmentCopyWidgetState extends State<BookAppointmentCopyWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => BookAppointmentCopyModel());
+    _model = createModel(context, () => AddfieldModel());
 
     _model.personsNameFocusNode ??= FocusNode();
 

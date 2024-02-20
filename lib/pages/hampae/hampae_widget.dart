@@ -7,7 +7,7 @@ import '/components/disp3/disp3_widget.dart';
 import '/components/disp5_widget.dart';
 import '/components/disp6_widget.dart';
 import '/components/editfielddetails_widget.dart';
-import '/components/empty_list2_widget.dart';
+import '/components/emptypersonalproject_widget.dart';
 import '/components/fieldor_trees_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -25,11 +25,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
-import 'home_page_model.dart';
-export 'home_page_model.dart';
+import 'hampae_model.dart';
+export 'hampae_model.dart';
 
-class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({
+class HampaeWidget extends StatefulWidget {
+  const HampaeWidget({
     super.key,
     this.test,
     int? ageYrs,
@@ -42,12 +42,12 @@ class HomePageWidget extends StatefulWidget {
   final int ageMnths;
 
   @override
-  State<HomePageWidget> createState() => _HomePageWidgetState();
+  State<HampaeWidget> createState() => _HampaeWidgetState();
 }
 
-class _HomePageWidgetState extends State<HomePageWidget>
+class _HampaeWidgetState extends State<HampaeWidget>
     with TickerProviderStateMixin {
-  late HomePageModel _model;
+  late HampaeModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -152,7 +152,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => HomePageModel());
+    _model = createModel(context, () => HampaeModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -196,9 +196,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
             ),
           );
         }
-        final homePageUsersRecord = snapshot.data!;
+        final hampaeUsersRecord = snapshot.data!;
         return Title(
-            title: 'homePage',
+            title: 'hampae',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
             child: Scaffold(
               key: scaffoldKey,
@@ -294,7 +294,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 4.0, 0.0, 0.0),
                               child: Text(
-                                homePageUsersRecord.displayName,
+                                hampaeUsersRecord.displayName,
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
@@ -397,7 +397,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 snapshot.data!;
                             if (fielddetailsFielddetailsRecordList.isEmpty) {
                               return Center(
-                                child: EmptyList2Widget(),
+                                child: EmptypersonalprojectWidget(),
                               );
                             }
                             return SingleChildScrollView(
@@ -1014,7 +1014,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                         Text(
                                                                       valueOrDefault<
                                                                           String>(
-                                                                        homePageUsersRecord
+                                                                        hampaeUsersRecord
                                                                             .tokenbalance
                                                                             .toString(),
                                                                         '20',
@@ -1045,7 +1045,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             CrossAxisAlignment.end,
                                                                         children: [
                                                                           Text(
-                                                                            homePageUsersRecord.tokenbalance.toString(),
+                                                                            hampaeUsersRecord.tokenbalance.toString(),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Outfit',
                                                                                   color: Colors.white,

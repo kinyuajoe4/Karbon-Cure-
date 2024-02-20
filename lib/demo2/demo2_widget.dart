@@ -1,7 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
-import '/components/empty_list_copy/empty_list_copy_widget.dart';
+import '/components/emptyproject/emptyproject_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -515,7 +515,7 @@ class _Demo2WidgetState extends State<Demo2Widget>
                                       listViewMytreesRecordList =
                                       snapshot.data!;
                                   if (listViewMytreesRecordList.isEmpty) {
-                                    return EmptyListCopyWidget();
+                                    return EmptyprojectWidget();
                                   }
                                   return ListView.builder(
                                     padding: EdgeInsets.zero,
@@ -2093,7 +2093,7 @@ class _Demo2WidgetState extends State<Demo2Widget>
                                                         .text,
                                                   ));
 
-                                                  context.pushNamed('homePage');
+                                                  context.pushNamed('hampae');
 
                                                   setState(() {});
                                                 },

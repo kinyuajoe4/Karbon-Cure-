@@ -160,8 +160,8 @@ class _LearncookstoveWidgetState extends State<LearncookstoveWidget> {
                     ),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(24.0),
-                      child: Image.network(
-                        'https://picsum.photos/seed/186/600',
+                      child: Image.asset(
+                        'assets/images/SFR-ISO.jpeg',
                         width: 300.0,
                         height: 200.0,
                         fit: BoxFit.cover,
@@ -216,8 +216,8 @@ class _LearncookstoveWidgetState extends State<LearncookstoveWidget> {
                           EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
-                        child: Image.network(
-                          'https://picsum.photos/seed/318/600',
+                        child: Image.asset(
+                          'assets/images/images_(5).jpeg',
                           width: double.infinity,
                           height: 200.0,
                           fit: BoxFit.cover,

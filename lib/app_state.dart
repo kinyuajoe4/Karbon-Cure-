@@ -44,6 +44,13 @@ class FFAppState extends ChangeNotifier {
       _avrageCountryfootprint = prefs.getDouble('ff_avrageCountryfootprint') ??
           _avrageCountryfootprint;
     });
+    _safeInit(() {
+      _planchosen = prefs.getDouble('ff_planchosen') ?? _planchosen;
+    });
+    _safeInit(() {
+      _footprintbought =
+          prefs.getDouble('ff_footprintbought') ?? _footprintbought;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -93,6 +100,20 @@ class FFAppState extends ChangeNotifier {
   set avrageCountryfootprint(double _value) {
     _avrageCountryfootprint = _value;
     prefs.setDouble('ff_avrageCountryfootprint', _value);
+  }
+
+  double _planchosen = 0.0;
+  double get planchosen => _planchosen;
+  set planchosen(double _value) {
+    _planchosen = _value;
+    prefs.setDouble('ff_planchosen', _value);
+  }
+
+  double _footprintbought = 0.0;
+  double get footprintbought => _footprintbought;
+  set footprintbought(double _value) {
+    _footprintbought = _value;
+    prefs.setDouble('ff_footprintbought', _value);
   }
 }
 

@@ -7,7 +7,7 @@ export '/pages/forgot_password/forgot_password_widget.dart'
 export '/pages/add_another_profile/add_another_profile_widget.dart'
     show AddAnotherProfileWidget;
 export '/pages/onboarding/onboarding_widget.dart' show OnboardingWidget;
-export '/pages/home_page/home_page_widget.dart' show HomePageWidget;
+export '/pages/hampae/hampae_widget.dart' show HampaeWidget;
 export '/pages/my_appointments/my_appointments_widget.dart'
     show MyAppointmentsWidget;
 export '/pages/appointment_details/appointment_details_widget.dart'
@@ -86,3 +86,4 @@ export '/learnaircapture/learnaircapture_widget.dart'
     show LearnaircaptureWidget;
 export '/learnhydro/learnhydro_widget.dart' show LearnhydroWidget;
 export '/addprojects/addprojects_widget.dart' show AddprojectsWidget;
+export '/chooseplanpage/chooseplanpage_widget.dart' show ChooseplanpageWidget;
