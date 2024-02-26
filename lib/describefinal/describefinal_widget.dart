@@ -9,7 +9,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -106,15 +105,6 @@ class _DescribefinalWidgetState extends State<DescribefinalWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return Title(
@@ -213,12 +203,11 @@ class _DescribefinalWidgetState extends State<DescribefinalWidget>
                                 child: SelectionArea(
                                     child: AutoSizeText(
                                   valueOrDefault<String>(
-                                    FFAppState().currentPageValue == null
+                                    widget.footprintfrompreviospage == null
                                         ? widget.footprintfrompreviospage
                                             ?.toString()
-                                        : FFAppState()
-                                            .currentPageValue
-                                            .toString(),
+                                        : widget.footprintfrompreviospage
+                                            ?.toString(),
                                     '16.56',
                                   ).maybeHandleOverflow(maxChars: 7),
                                   style: FlutterFlowTheme.of(context)

@@ -10,7 +10,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -109,15 +108,6 @@ class _DescribeElectricityWidgetState extends State<DescribeElectricityWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return Title(
@@ -226,9 +216,7 @@ class _DescribeElectricityWidgetState extends State<DescribeElectricityWidget>
                                                 _model.radioButtonValue3 == '')
                                         ? widget.footprintfrompreviouspage
                                             ?.toString()
-                                        : FFAppState()
-                                            .currentPageValue
-                                            .toString(),
+                                        : _model.currentPageState?.toString(),
                                     '1.78',
                                   ).maybeHandleOverflow(maxChars: 4),
                                   style: FlutterFlowTheme.of(context)
@@ -281,7 +269,7 @@ class _DescribeElectricityWidgetState extends State<DescribeElectricityWidget>
                       padding:
                           EdgeInsetsDirectional.fromSTEB(8.0, 250.0, 8.0, 8.0),
                       child: Container(
-                        height: 400.0,
+                        height: 300.0,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -366,8 +354,8 @@ class _DescribeElectricityWidgetState extends State<DescribeElectricityWidget>
                                                     .footprintfrompreviouspage,
                                               );
                                               setState(() {
-                                                FFAppState().currentPageValue =
-                                                    _model.sum1!;
+                                                _model.currentPageState =
+                                                    _model.sum1;
                                               });
 
                                               setState(() {});
@@ -454,8 +442,8 @@ class _DescribeElectricityWidgetState extends State<DescribeElectricityWidget>
                                               widget.footprintfrompreviouspage,
                                             );
                                             setState(() {
-                                              FFAppState().currentPageValue =
-                                                  _model.sum2!;
+                                              _model.currentPageState =
+                                                  _model.sum2;
                                             });
 
                                             setState(() {});
@@ -539,8 +527,8 @@ class _DescribeElectricityWidgetState extends State<DescribeElectricityWidget>
                                               widget.footprintfrompreviouspage,
                                             );
                                             setState(() {
-                                              FFAppState().currentPageValue =
-                                                  _model.sum22!;
+                                              _model.currentPageState =
+                                                  _model.sum22;
                                             });
 
                                             setState(() {});
@@ -610,47 +598,49 @@ class _DescribeElectricityWidgetState extends State<DescribeElectricityWidget>
                                   .primaryBackground,
                               borderRadius: BorderRadius.circular(12.0),
                             ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      7.0, 3.0, 1.0, 10.0),
-                                  child: RichText(
-                                    textScaleFactor:
-                                        MediaQuery.of(context).textScaleFactor,
-                                    text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                          text: 'Do you have ',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodySmall
-                                              .override(
-                                                fontFamily: 'Outfit',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                              ),
-                                        ),
-                                        TextSpan(
-                                          text: ' renewable electricity ',
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w800,
+                            child: SingleChildScrollView(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        7.0, 3.0, 1.0, 10.0),
+                                    child: RichText(
+                                      textScaleFactor: MediaQuery.of(context)
+                                          .textScaleFactor,
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: 'Do you have ',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodySmall
+                                                .override(
+                                                  fontFamily: 'Outfit',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                ),
                                           ),
-                                        ),
-                                        TextSpan(
-                                          text: 'at home?',
-                                          style: TextStyle(),
-                                        )
-                                      ],
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          TextSpan(
+                                            text: ' renewable electricity ',
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.w800,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: 'at home?',
+                                            style: TextStyle(),
+                                          )
+                                        ],
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -666,7 +656,7 @@ class _DescribeElectricityWidgetState extends State<DescribeElectricityWidget>
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
-                            '8/8',
+                            '7/7',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -735,27 +725,27 @@ class _DescribeElectricityWidgetState extends State<DescribeElectricityWidget>
                                     _model.mul01 =
                                         await actions.multiplyTwoDoubleNumbers(
                                       0.2,
-                                      FFAppState().currentPageValue,
+                                      widget.footprintfrompreviouspage,
                                     );
                                     _model.mul02 =
                                         await actions.multiplyTwoDoubleNumbers(
                                       0.4,
-                                      FFAppState().currentPageValue,
+                                      widget.footprintfrompreviouspage,
                                     );
                                     _model.mul03 =
                                         await actions.multiplyTwoDoubleNumbers(
                                       0.4,
-                                      FFAppState().currentPageValue,
+                                      widget.footprintfrompreviouspage,
                                     );
                                     _model.mul04 =
                                         await actions.multiplyTwoDoubleNumbers(
                                       0.25,
-                                      FFAppState().currentPageValue,
+                                      widget.footprintfrompreviouspage,
                                     );
                                     _model.mul05 =
                                         await actions.multiplyTwoDoubleNumbers(
                                       0.35,
-                                      FFAppState().currentPageValue,
+                                      widget.footprintfrompreviouspage,
                                     );
 
                                     context.pushNamed(
@@ -763,7 +753,7 @@ class _DescribeElectricityWidgetState extends State<DescribeElectricityWidget>
                                       queryParameters: {
                                         'footprintfrompreviospage':
                                             serializeParam(
-                                          0.0,
+                                          widget.footprintfrompreviouspage,
                                           ParamType.double,
                                         ),
                                         'flying': serializeParam(
@@ -817,34 +807,34 @@ class _DescribeElectricityWidgetState extends State<DescribeElectricityWidget>
                                 _model.mul11 =
                                     await actions.multiplyTwoDoubleNumbers(
                                   0.2,
-                                  FFAppState().currentPageValue,
+                                  _model.currentPageState,
                                 );
                                 _model.mul22 =
                                     await actions.multiplyTwoDoubleNumbers(
                                   0.4,
-                                  FFAppState().currentPageValue,
+                                  _model.currentPageState,
                                 );
                                 _model.mul33 =
                                     await actions.multiplyTwoDoubleNumbers(
                                   0.4,
-                                  FFAppState().currentPageValue,
+                                  _model.currentPageState,
                                 );
                                 _model.mul44 =
                                     await actions.multiplyTwoDoubleNumbers(
                                   0.25,
-                                  FFAppState().currentPageValue,
+                                  _model.currentPageState,
                                 );
                                 _model.mul55 =
                                     await actions.multiplyTwoDoubleNumbers(
                                   0.35,
-                                  FFAppState().currentPageValue,
+                                  _model.currentPageState,
                                 );
 
                                 context.pushNamed(
                                   'describefinal',
                                   queryParameters: {
                                     'footprintfrompreviospage': serializeParam(
-                                      FFAppState().currentPageValue,
+                                      _model.currentPageState,
                                       ParamType.double,
                                     ),
                                     'flying': serializeParam(

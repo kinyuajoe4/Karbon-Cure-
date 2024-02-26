@@ -19,6 +19,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class DescribeHomeModel extends FlutterFlowModel<DescribeHomeWidget> {
+  ///  Local state fields for this page.
+
+  double? currentPageState;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -40,6 +44,14 @@ class DescribeHomeModel extends FlutterFlowModel<DescribeHomeWidget> {
   double? sum4;
   // State field(s) for RadioButton widget.
   FormFieldController<String>? radioButtonValueController5;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController;
+  String? Function(BuildContext, String?)? textControllerValidator;
+  // Stores action output result for [Custom Action - multiplyTwoDoubleNumbers] action in Text widget.
+  double? mul1;
+  // Stores action output result for [Custom Action - addTwoDoubleNumbers] action in Text widget.
+  double? add1;
 
   /// Initialization and disposal methods.
 
@@ -49,6 +61,8 @@ class DescribeHomeModel extends FlutterFlowModel<DescribeHomeWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
+    textFieldFocusNode?.dispose();
+    textController?.dispose();
   }
 
   /// Action blocks are added here.

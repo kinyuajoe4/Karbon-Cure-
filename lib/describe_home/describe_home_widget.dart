@@ -97,6 +97,9 @@ class _DescribeHomeWidgetState extends State<DescribeHomeWidget>
     super.initState();
     _model = createModel(context, () => DescribeHomeModel());
 
+    _model.textController ??= TextEditingController(text: '100');
+    _model.textFieldFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -109,15 +112,6 @@ class _DescribeHomeWidgetState extends State<DescribeHomeWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return Title(
@@ -232,9 +226,7 @@ class _DescribeHomeWidgetState extends State<DescribeHomeWidget>
                                                 _model.radioButtonValue5 == '')
                                         ? widget.footprintformpreviouspage
                                             ?.toString()
-                                        : FFAppState()
-                                            .currentPageValue
-                                            .toString(),
+                                        : _model.currentPageState?.toString(),
                                     '1.78',
                                   ).maybeHandleOverflow(maxChars: 4),
                                   style: FlutterFlowTheme.of(context)
@@ -286,9 +278,9 @@ class _DescribeHomeWidgetState extends State<DescribeHomeWidget>
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 250.0, 8.0, 8.0),
+                          EdgeInsetsDirectional.fromSTEB(8.0, 230.0, 8.0, 8.0),
                       child: Container(
-                        height: 400.0,
+                        height: 460.0,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -381,8 +373,8 @@ class _DescribeHomeWidgetState extends State<DescribeHomeWidget>
                                                     .footprintformpreviouspage,
                                               );
                                               setState(() {
-                                                FFAppState().currentPageValue =
-                                                    _model.sum1!;
+                                                _model.currentPageState =
+                                                    _model.sum1;
                                               });
 
                                               setState(() {});
@@ -473,8 +465,8 @@ class _DescribeHomeWidgetState extends State<DescribeHomeWidget>
                                               widget.footprintformpreviouspage,
                                             );
                                             setState(() {
-                                              FFAppState().currentPageValue =
-                                                  _model.sum2!;
+                                              _model.currentPageState =
+                                                  _model.sum2;
                                             });
 
                                             setState(() {});
@@ -562,8 +554,8 @@ class _DescribeHomeWidgetState extends State<DescribeHomeWidget>
                                               widget.footprintformpreviouspage,
                                             );
                                             setState(() {
-                                              FFAppState().currentPageValue =
-                                                  _model.sum3!;
+                                              _model.currentPageState =
+                                                  _model.sum3;
                                             });
 
                                             setState(() {});
@@ -651,8 +643,8 @@ class _DescribeHomeWidgetState extends State<DescribeHomeWidget>
                                               widget.footprintformpreviouspage,
                                             );
                                             setState(() {
-                                              FFAppState().currentPageValue =
-                                                  _model.sum4!;
+                                              _model.currentPageState =
+                                                  _model.sum4;
                                             });
 
                                             setState(() {});
@@ -797,6 +789,217 @@ class _DescribeHomeWidgetState extends State<DescribeHomeWidget>
                                     ),
                                   ),
                                 ),
+                                if (_model.radioButtonValue5 != null &&
+                                    _model.radioButtonValue5 != '')
+                                  Padding(
+                                    padding: EdgeInsets.all(20.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 0.0, 8.0, 10.0),
+                                          child: TextFormField(
+                                            controller: _model.textController,
+                                            focusNode:
+                                                _model.textFieldFocusNode,
+                                            autofocus: true,
+                                            obscureText: false,
+                                            decoration: InputDecoration(
+                                              labelText: 'Enter Square Feet',
+                                              labelStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 24.0,
+                                                      ),
+                                              alignLabelWithHint: true,
+                                              hintStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium,
+                                              enabledBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius: BorderRadius.only(
+                                                  bottomLeft:
+                                                      Radius.circular(14.0),
+                                                  bottomRight:
+                                                      Radius.circular(14.0),
+                                                  topLeft:
+                                                      Radius.circular(14.0),
+                                                  topRight:
+                                                      Radius.circular(14.0),
+                                                ),
+                                              ),
+                                              focusedBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius: BorderRadius.only(
+                                                  bottomLeft:
+                                                      Radius.circular(14.0),
+                                                  bottomRight:
+                                                      Radius.circular(14.0),
+                                                  topLeft:
+                                                      Radius.circular(14.0),
+                                                  topRight:
+                                                      Radius.circular(14.0),
+                                                ),
+                                              ),
+                                              errorBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius: BorderRadius.only(
+                                                  bottomLeft:
+                                                      Radius.circular(14.0),
+                                                  bottomRight:
+                                                      Radius.circular(14.0),
+                                                  topLeft:
+                                                      Radius.circular(14.0),
+                                                  topRight:
+                                                      Radius.circular(14.0),
+                                                ),
+                                              ),
+                                              focusedErrorBorder:
+                                                  OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius: BorderRadius.only(
+                                                  bottomLeft:
+                                                      Radius.circular(14.0),
+                                                  bottomRight:
+                                                      Radius.circular(14.0),
+                                                  topLeft:
+                                                      Radius.circular(14.0),
+                                                  topRight:
+                                                      Radius.circular(14.0),
+                                                ),
+                                              ),
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Outfit',
+                                                  fontSize: 24.0,
+                                                ),
+                                            maxLength: 6,
+                                            maxLengthEnforcement:
+                                                MaxLengthEnforcement.none,
+                                            buildCounter: (context,
+                                                    {required currentLength,
+                                                    required isFocused,
+                                                    maxLength}) =>
+                                                null,
+                                            keyboardType: TextInputType.number,
+                                            validator: _model
+                                                .textControllerValidator
+                                                .asValidator(context),
+                                          ),
+                                        ),
+                                        Divider(
+                                          thickness: 1.0,
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent4,
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 5.0, 0.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            children: [
+                                              InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  if (_model.textController
+                                                              .text !=
+                                                          null &&
+                                                      _model.textController
+                                                              .text !=
+                                                          '') {
+                                                    _model.mul1 = await actions
+                                                        .multiplyTwoDoubleNumbers(
+                                                      0.65,
+                                                      double.tryParse(_model
+                                                          .textController.text),
+                                                    );
+                                                    _model.add1 = await actions
+                                                        .addTwoDoubleNumbers(
+                                                      widget
+                                                          .footprintformpreviouspage,
+                                                      _model.mul1,
+                                                    );
+                                                    setState(() {
+                                                      _model.currentPageState =
+                                                          _model.add1;
+                                                    });
+                                                  } else {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          'an error occured.Try again',
+                                                          style: TextStyle(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                          ),
+                                                        ),
+                                                        duration: Duration(
+                                                            milliseconds: 4000),
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                      ),
+                                                    );
+                                                  }
+
+                                                  setState(() {});
+                                                },
+                                                child: Text(
+                                                  'Save',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Outfit',
+                                                        fontSize: 24.0,
+                                                        fontWeight:
+                                                            FontWeight.w900,
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
                               ],
                             ),
                           ),
@@ -806,7 +1009,7 @@ class _DescribeHomeWidgetState extends State<DescribeHomeWidget>
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 150.0, 8.0, 8.0),
+                          EdgeInsetsDirectional.fromSTEB(8.0, 130.0, 8.0, 8.0),
                       child: Container(
                         width: 250.0,
                         height: 60.0,
@@ -826,47 +1029,49 @@ class _DescribeHomeWidgetState extends State<DescribeHomeWidget>
                                   .primaryBackground,
                               borderRadius: BorderRadius.circular(12.0),
                             ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      7.0, 3.0, 1.0, 10.0),
-                                  child: RichText(
-                                    textScaleFactor:
-                                        MediaQuery.of(context).textScaleFactor,
-                                    text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                          text: 'How big is ',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodySmall
-                                              .override(
-                                                fontFamily: 'Outfit',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                              ),
-                                        ),
-                                        TextSpan(
-                                          text: 'your home.',
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w800,
+                            child: SingleChildScrollView(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        7.0, 3.0, 1.0, 10.0),
+                                    child: RichText(
+                                      textScaleFactor: MediaQuery.of(context)
+                                          .textScaleFactor,
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: 'How big is ',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodySmall
+                                                .override(
+                                                  fontFamily: 'Outfit',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                ),
                                           ),
-                                        ),
-                                        TextSpan(
-                                          text: '',
-                                          style: TextStyle(),
-                                        )
-                                      ],
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          TextSpan(
+                                            text: 'your home.',
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.w800,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: '',
+                                            style: TextStyle(),
+                                          )
+                                        ],
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -875,14 +1080,14 @@ class _DescribeHomeWidgetState extends State<DescribeHomeWidget>
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 690.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 710.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
-                            '6/8',
+                            '6/7',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -895,7 +1100,7 @@ class _DescribeHomeWidgetState extends State<DescribeHomeWidget>
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(
-                          70.0, 680.0, 45.0, 0.0),
+                          70.0, 700.0, 45.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -961,13 +1166,11 @@ class _DescribeHomeWidgetState extends State<DescribeHomeWidget>
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     context.pushNamed(
-                                      'describePeopleInyourHome',
+                                      'describeElectricity',
                                       queryParameters: {
-                                        'footprintfrompreviospage':
+                                        'footprintfrompreviouspage':
                                             serializeParam(
-                                          FFAppState().currentPageValue == null
-                                              ? widget.footprintformpreviouspage
-                                              : FFAppState().currentPageValue,
+                                          widget.footprintformpreviouspage,
                                           ParamType.double,
                                         ),
                                       }.withoutNulls,
@@ -1001,10 +1204,10 @@ class _DescribeHomeWidgetState extends State<DescribeHomeWidget>
                             FFButtonWidget(
                               onPressed: () async {
                                 context.pushNamed(
-                                  'describePeopleInyourHome',
+                                  'describeElectricity',
                                   queryParameters: {
-                                    'footprintfrompreviospage': serializeParam(
-                                      FFAppState().currentPageValue,
+                                    'footprintfrompreviouspage': serializeParam(
+                                      _model.currentPageState,
                                       ParamType.double,
                                     ),
                                   }.withoutNulls,

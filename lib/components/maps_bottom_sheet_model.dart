@@ -7,7 +7,6 @@ import '/flutter_flow/place.dart';
 import 'dart:io';
 import 'maps_bottom_sheet_widget.dart' show MapsBottomSheetWidget;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pointer_interceptor/pointer_interceptor.dart';

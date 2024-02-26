@@ -1,10 +1,10 @@
+import '/components/emptypersonalproject_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -200,15 +200,6 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return Title(
@@ -1331,7 +1322,7 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         10.0, 4.0, 10.0, 0.0),
                                     child: Text(
-                                      'We use this information when selectiinng new projects so that we can incorporate our communities\' preference.',
+                                      'We use this information when selecting new projects so that we can incorporate our communities\' preference.',
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium,
                                     ),
@@ -1343,6 +1334,49 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                         ).animateOnPageLoad(
                             animationsMap['listViewOnPageLoadAnimation']!),
                       ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            10.0, 10.0, 10.0, 30.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Switch.adaptive(
+                              value: _model.switchValue ??= false,
+                              onChanged: (newValue) async {
+                                setState(() => _model.switchValue = newValue!);
+                              },
+                              activeColor: FlutterFlowTheme.of(context).success,
+                              activeTrackColor:
+                                  FlutterFlowTheme.of(context).accent1,
+                              inactiveTrackColor:
+                                  FlutterFlowTheme.of(context).alternate,
+                              inactiveThumbColor:
+                                  FlutterFlowTheme.of(context).secondaryText,
+                            ),
+                            Text(
+                              'Prefer Personal projects',
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                          ],
+                        ),
+                      ),
+                      if (_model.switchValue == true)
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              5.0, 30.0, 5.0, 30.0),
+                          child: Container(
+                            height: 600.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                            child: wrapWithModel(
+                              model: _model.emptypersonalprojectModel,
+                              updateCallback: () => setState(() {}),
+                              child: EmptypersonalprojectWidget(),
+                            ),
+                          ),
+                        ),
                     ],
                   ),
                 ),
