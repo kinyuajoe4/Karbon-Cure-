@@ -4,18 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'emptyproject_model.dart';
-export 'emptyproject_model.dart';
+import 'emptyproject_copy_model.dart';
+export 'emptyproject_copy_model.dart';
 
-class EmptyprojectWidget extends StatefulWidget {
-  const EmptyprojectWidget({super.key});
+class EmptyprojectCopyWidget extends StatefulWidget {
+  const EmptyprojectCopyWidget({super.key});
 
   @override
-  State<EmptyprojectWidget> createState() => _EmptyprojectWidgetState();
+  State<EmptyprojectCopyWidget> createState() => _EmptyprojectCopyWidgetState();
 }
 
-class _EmptyprojectWidgetState extends State<EmptyprojectWidget> {
-  late EmptyprojectModel _model;
+class _EmptyprojectCopyWidgetState extends State<EmptyprojectCopyWidget> {
+  late EmptyprojectCopyModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -26,7 +26,7 @@ class _EmptyprojectWidgetState extends State<EmptyprojectWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => EmptyprojectModel());
+    _model = createModel(context, () => EmptyprojectCopyModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -58,7 +58,7 @@ class _EmptyprojectWidgetState extends State<EmptyprojectWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'No projects Yet',
+                'No personal projects Yet',
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).headlineSmall,
               ),

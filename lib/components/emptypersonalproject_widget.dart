@@ -55,81 +55,95 @@ class _EmptypersonalprojectWidgetState
           color: Color(0xFF25E31E),
           size: 90.0,
         ),
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Have some personal climate  projects',
-                textAlign: TextAlign.center,
-                style: FlutterFlowTheme.of(context).headlineSmall.override(
-                      fontFamily: 'Outfit',
-                      color: Color(0xFF2EFB26),
-                    ),
-              ),
-            ],
-          ),
-        ),
         Expanded(
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  '🌿 Neutralize your carbon footprint with personal tree planting projects.',
-                  textAlign: TextAlign.center,
-                  style: FlutterFlowTheme.of(context).bodySmall,
-                ),
-                Text(
-                  '🟩 Specify the locations of your projects by adding your fields.\n',
-                  textAlign: TextAlign.center,
-                  style: FlutterFlowTheme.of(context).bodySmall,
-                ),
-                Text(
-                  '💚 Monitor your climate projects using daily reminders.\n',
-                  textAlign: TextAlign.center,
-                  style: FlutterFlowTheme.of(context).bodySmall,
-                ),
-              ],
-            ),
-          ),
-        ),
-        FFButtonWidget(
-          onPressed: () async {
-            await showModalBottomSheet(
-              isScrollControlled: true,
-              backgroundColor: Colors.transparent,
-              enableDrag: false,
-              context: context,
-              builder: (context) {
-                return Padding(
-                  padding: MediaQuery.viewInsetsOf(context),
-                  child: FieldorTreesWidget(),
-                );
-              },
-            ).then((value) => safeSetState(() {}));
-          },
-          text: 'Add field',
-          options: FFButtonOptions(
-            width: 170.0,
-            height: 50.0,
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-            iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-            color: Color(0xFF27F445),
-            textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                  fontFamily: 'Lexend Deca',
-                  color: Colors.white,
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.normal,
-                ),
-            elevation: 2.0,
-            borderSide: BorderSide(
-              color: Colors.transparent,
-              width: 1.0,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Have  personal climate  projects?',
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context)
+                              .headlineSmall
+                              .override(
+                                fontFamily: 'Outfit',
+                                color: Color(0xFF2EFB26),
+                              ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Text(
+                    '🌿 Neutralize your carbon footprint with personal tree planting projects.',
+                    textAlign: TextAlign.center,
+                    style: FlutterFlowTheme.of(context).bodySmall,
+                  ),
+                  Text(
+                    '🟩 Specify the locations of your projects by adding your fields.\n',
+                    textAlign: TextAlign.center,
+                    style: FlutterFlowTheme.of(context).bodySmall,
+                  ),
+                  Text(
+                    '💚 Monitor your climate projects using daily reminders.\n',
+                    textAlign: TextAlign.center,
+                    style: FlutterFlowTheme.of(context).bodySmall,
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      FFButtonWidget(
+                        onPressed: () async {
+                          await showModalBottomSheet(
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            enableDrag: false,
+                            context: context,
+                            builder: (context) {
+                              return Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: FieldorTreesWidget(),
+                              );
+                            },
+                          ).then((value) => safeSetState(() {}));
+                        },
+                        text: 'Add field',
+                        options: FFButtonOptions(
+                          width: 170.0,
+                          height: 50.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: Color(0xFF27F445),
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: Colors.white,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                          elevation: 2.0,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

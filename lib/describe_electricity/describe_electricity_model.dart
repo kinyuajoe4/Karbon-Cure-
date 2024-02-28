@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/actions/index.dart' as actions;
@@ -37,26 +36,6 @@ class DescribeElectricityModel
   FormFieldController<String>? radioButtonValueController3;
   // Stores action output result for [Custom Action - addTwoDoubleNumbers] action in RadioButton widget.
   double? sum22;
-  // Stores action output result for [Custom Action - multiplyTwoDoubleNumbers] action in Text widget.
-  double? mul01;
-  // Stores action output result for [Custom Action - multiplyTwoDoubleNumbers] action in Text widget.
-  double? mul02;
-  // Stores action output result for [Custom Action - multiplyTwoDoubleNumbers] action in Text widget.
-  double? mul03;
-  // Stores action output result for [Custom Action - multiplyTwoDoubleNumbers] action in Text widget.
-  double? mul04;
-  // Stores action output result for [Custom Action - multiplyTwoDoubleNumbers] action in Text widget.
-  double? mul05;
-  // Stores action output result for [Custom Action - multiplyTwoDoubleNumbers] action in Button widget.
-  double? mul11;
-  // Stores action output result for [Custom Action - multiplyTwoDoubleNumbers] action in Button widget.
-  double? mul22;
-  // Stores action output result for [Custom Action - multiplyTwoDoubleNumbers] action in Button widget.
-  double? mul33;
-  // Stores action output result for [Custom Action - multiplyTwoDoubleNumbers] action in Button widget.
-  double? mul44;
-  // Stores action output result for [Custom Action - multiplyTwoDoubleNumbers] action in Button widget.
-  double? mul55;
 
   /// Initialization and disposal methods.
 

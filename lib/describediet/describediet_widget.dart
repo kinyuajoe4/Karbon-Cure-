@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/actions/index.dart' as actions;
@@ -130,41 +129,20 @@ class _DescribedietWidgetState extends State<DescribedietWidget>
                 height: double.infinity,
                 child: Stack(
                   children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.asset(
+                        'assets/images/edgar-castrejon-1CsaVdwfIew-unsplash_(1)-modified.jpg',
+                        width: double.infinity,
+                        height: 1300.0,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                     SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 170.0, 0.0, 0.0),
-                            child: FlutterFlowVideoPlayer(
-                              path: 'assets/videos/sample1.mp4',
-                              videoType: VideoType.asset,
-                              width: double.infinity,
-                              height: double.infinity,
-                              autoPlay: true,
-                              looping: true,
-                              showControls: false,
-                              allowFullScreen: false,
-                              allowPlaybackSpeedMenu: false,
-                              pauseOnNavigate: false,
-                            ),
-                          ),
-                        ],
+                        children: [],
                       ),
-                    ),
-                    FlutterFlowVideoPlayer(
-                      path: 'assets/videos/sample1.mp4',
-                      videoType: VideoType.asset,
-                      width: double.infinity,
-                      height: double.infinity,
-                      aspectRatio: 0.56,
-                      autoPlay: true,
-                      looping: true,
-                      showControls: false,
-                      allowFullScreen: false,
-                      allowPlaybackSpeedMenu: false,
-                      pauseOnNavigate: false,
                     ),
                     Padding(
                       padding:
@@ -235,7 +213,8 @@ class _DescribedietWidgetState extends State<DescribedietWidget>
                                       .headlineMedium
                                       .override(
                                         fontFamily: 'Outfit',
-                                        color: Color(0xFF121213),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBtnText,
                                       ),
                                 )).animateOnPageLoad(
                                     animationsMap['textOnPageLoadAnimation']!),

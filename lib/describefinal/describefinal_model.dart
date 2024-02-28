@@ -2,7 +2,6 @@ import '/auth/base_auth_user_provider.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'describefinal_widget.dart' show DescribefinalWidget;
@@ -25,12 +24,16 @@ class DescribefinalModel extends FlutterFlowModel<DescribefinalWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Stores action output result for [Custom Action - divideTwoDoubleNumbers] action in describefinal widget.
-  double? div1;
   // Stores action output result for [Custom Action - multiplyTwoDoubleNumbers] action in describefinal widget.
-  double? mul1;
-  // Stores action output result for [Custom Action - addTwoDoubleNumbers] action in describefinal widget.
-  double? addd1;
+  double? flyin;
+  // Stores action output result for [Custom Action - multiplyTwoDoubleNumbers] action in describefinal widget.
+  double? moblty;
+  // Stores action output result for [Custom Action - multiplyTwoDoubleNumbers] action in describefinal widget.
+  double? housing;
+  // Stores action output result for [Custom Action - multiplyTwoDoubleNumbers] action in describefinal widget.
+  double? diett;
+  // Stores action output result for [Custom Action - multiplyTwoDoubleNumbers] action in describefinal widget.
+  double? spending;
 
   /// Initialization and disposal methods.
 

@@ -2,7 +2,6 @@ import '/auth/base_auth_user_provider.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:auto_size_text/auto_size_text.dart';
@@ -76,21 +75,29 @@ class _DescribefinalWidgetState extends State<DescribefinalWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.div1 = await actions.divideTwoDoubleNumbers(
-        widget.footprintfrompreviospage,
-        5.0,
-      );
-      _model.mul1 = await actions.multiplyTwoDoubleNumbers(
-        FFAppState().currentPageValue,
-        0.3,
-      );
-      _model.addd1 = await actions.addTwoDoubleNumbers(
-        0.5,
-        widget.footprintfrompreviospage,
-      );
       setState(() {
-        _model.flying = _model.mul1;
+        FFAppState().currentPageValue = widget.footprintfrompreviospage!;
       });
+      _model.flyin = await actions.multiplyTwoDoubleNumbers(
+        FFAppState().currentPageValue,
+        0.302,
+      );
+      _model.moblty = await actions.multiplyTwoDoubleNumbers(
+        FFAppState().currentPageValue,
+        0.25,
+      );
+      _model.housing = await actions.multiplyTwoDoubleNumbers(
+        FFAppState().currentPageValue,
+        0.35,
+      );
+      _model.diett = await actions.multiplyTwoDoubleNumbers(
+        FFAppState().currentPageValue,
+        0.215,
+      );
+      _model.spending = await actions.multiplyTwoDoubleNumbers(
+        FFAppState().currentPageValue,
+        0.102,
+      );
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -123,41 +130,20 @@ class _DescribefinalWidgetState extends State<DescribefinalWidget>
                 height: double.infinity,
                 child: Stack(
                   children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.asset(
+                        'assets/images/filip-zrnzevic-_EMkxLdko9k-unsplash_(1)-modified_(1).png',
+                        width: double.infinity,
+                        height: 1300.0,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                     SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 170.0, 0.0, 0.0),
-                            child: FlutterFlowVideoPlayer(
-                              path: 'assets/videos/sample1.mp4',
-                              videoType: VideoType.asset,
-                              width: double.infinity,
-                              height: double.infinity,
-                              autoPlay: true,
-                              looping: true,
-                              showControls: false,
-                              allowFullScreen: false,
-                              allowPlaybackSpeedMenu: false,
-                              pauseOnNavigate: false,
-                            ),
-                          ),
-                        ],
+                        children: [],
                       ),
-                    ),
-                    FlutterFlowVideoPlayer(
-                      path: 'assets/videos/sample1.mp4',
-                      videoType: VideoType.asset,
-                      width: double.infinity,
-                      height: double.infinity,
-                      aspectRatio: 0.56,
-                      autoPlay: true,
-                      looping: true,
-                      showControls: false,
-                      allowFullScreen: false,
-                      allowPlaybackSpeedMenu: false,
-                      pauseOnNavigate: false,
                     ),
                     Padding(
                       padding:
@@ -214,7 +200,8 @@ class _DescribefinalWidgetState extends State<DescribefinalWidget>
                                       .headlineMedium
                                       .override(
                                         fontFamily: 'Outfit',
-                                        color: Color(0xFF121213),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBtnText,
                                         fontSize: 30.0,
                                       ),
                                 )).animateOnPageLoad(
@@ -234,7 +221,9 @@ class _DescribefinalWidgetState extends State<DescribefinalWidget>
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Outfit',
-                                              color: Color(0xFF090B0B),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBtnText,
                                               fontWeight: FontWeight.bold,
                                             ),
                                       ),
@@ -247,6 +236,8 @@ class _DescribefinalWidgetState extends State<DescribefinalWidget>
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Outfit',
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
                                           fontSize: 12.0,
                                         ),
                                   ),
@@ -282,8 +273,13 @@ class _DescribefinalWidgetState extends State<DescribefinalWidget>
                                 children: [
                                   Text(
                                     'This is your annual carbon footprint breakdown .',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Outfit',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBtnText,
+                                        ),
                                   ),
                                 ],
                               ),
@@ -335,9 +331,9 @@ class _DescribefinalWidgetState extends State<DescribefinalWidget>
                                                 ? widget
                                                     .footprintfrompreviospage
                                                     ?.toString()
-                                                : FFAppState()
-                                                    .currentPageValue
-                                                    .toString(),
+                                                : widget
+                                                    .footprintfrompreviospage
+                                                    ?.toString(),
                                             '16.56',
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -608,8 +604,8 @@ class _DescribefinalWidgetState extends State<DescribefinalWidget>
                                       ),
                                       Text(
                                         valueOrDefault<String>(
-                                          widget.flying?.toString(),
-                                          '0.70',
+                                          _model.flyin?.toString(),
+                                          '00',
                                         ).maybeHandleOverflow(maxChars: 4),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -666,8 +662,8 @@ class _DescribefinalWidgetState extends State<DescribefinalWidget>
                                       ),
                                       Text(
                                         valueOrDefault<String>(
-                                          widget.mobility?.toString(),
-                                          '0.2',
+                                          _model.moblty?.toString(),
+                                          '0.00',
                                         ).maybeHandleOverflow(maxChars: 4),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -723,8 +719,8 @@ class _DescribefinalWidgetState extends State<DescribefinalWidget>
                                       ),
                                       Text(
                                         valueOrDefault<String>(
-                                          widget.housing?.toString(),
-                                          '0.65',
+                                          _model.housing?.toString(),
+                                          '0.00',
                                         ).maybeHandleOverflow(maxChars: 4),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -780,8 +776,8 @@ class _DescribefinalWidgetState extends State<DescribefinalWidget>
                                       ),
                                       Text(
                                         valueOrDefault<String>(
-                                          widget.diet?.toString(),
-                                          '0.4',
+                                          _model.diett?.toString(),
+                                          '0.00',
                                         ).maybeHandleOverflow(maxChars: 4),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -841,8 +837,8 @@ class _DescribefinalWidgetState extends State<DescribefinalWidget>
                                       ),
                                       Text(
                                         valueOrDefault<String>(
-                                          widget.spending?.toString(),
-                                          '0.1',
+                                          _model.spending?.toString(),
+                                          '0.00',
                                         ).maybeHandleOverflow(maxChars: 4),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium

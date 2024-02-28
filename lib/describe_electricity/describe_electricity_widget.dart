@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/actions/index.dart' as actions;
@@ -126,41 +125,20 @@ class _DescribeElectricityWidgetState extends State<DescribeElectricityWidget>
                 height: double.infinity,
                 child: Stack(
                   children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.asset(
+                        'assets/images/filipe-paulo-bFMwQb6YRU8-unsplash_(1).jpg',
+                        width: double.infinity,
+                        height: 1300.0,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                     SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 170.0, 0.0, 0.0),
-                            child: FlutterFlowVideoPlayer(
-                              path: 'assets/videos/sample1.mp4',
-                              videoType: VideoType.asset,
-                              width: double.infinity,
-                              height: double.infinity,
-                              autoPlay: true,
-                              looping: true,
-                              showControls: false,
-                              allowFullScreen: false,
-                              allowPlaybackSpeedMenu: false,
-                              pauseOnNavigate: false,
-                            ),
-                          ),
-                        ],
+                        children: [],
                       ),
-                    ),
-                    FlutterFlowVideoPlayer(
-                      path: 'assets/videos/sample1.mp4',
-                      videoType: VideoType.asset,
-                      width: double.infinity,
-                      height: double.infinity,
-                      aspectRatio: 0.56,
-                      autoPlay: true,
-                      looping: true,
-                      showControls: false,
-                      allowFullScreen: false,
-                      allowPlaybackSpeedMenu: false,
-                      pauseOnNavigate: false,
                     ),
                     Padding(
                       padding:
@@ -223,7 +201,8 @@ class _DescribeElectricityWidgetState extends State<DescribeElectricityWidget>
                                       .headlineMedium
                                       .override(
                                         fontFamily: 'Outfit',
-                                        color: Color(0xFF121213),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBtnText,
                                       ),
                                 )).animateOnPageLoad(
                                     animationsMap['textOnPageLoadAnimation']!),
@@ -508,7 +487,7 @@ class _DescribeElectricityWidgetState extends State<DescribeElectricityWidget>
                                       children: [
                                         FlutterFlowRadioButton(
                                           options: [
-                                            '        🤖     Not sure                                                                   '
+                                            '        🤖     Not sure                                                                           '
                                           ].toList(),
                                           onChanged: (val) async {
                                             setState(() {});
@@ -722,32 +701,6 @@ class _DescribeElectricityWidgetState extends State<DescribeElectricityWidget>
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    _model.mul01 =
-                                        await actions.multiplyTwoDoubleNumbers(
-                                      0.2,
-                                      widget.footprintfrompreviouspage,
-                                    );
-                                    _model.mul02 =
-                                        await actions.multiplyTwoDoubleNumbers(
-                                      0.4,
-                                      widget.footprintfrompreviouspage,
-                                    );
-                                    _model.mul03 =
-                                        await actions.multiplyTwoDoubleNumbers(
-                                      0.4,
-                                      widget.footprintfrompreviouspage,
-                                    );
-                                    _model.mul04 =
-                                        await actions.multiplyTwoDoubleNumbers(
-                                      0.25,
-                                      widget.footprintfrompreviouspage,
-                                    );
-                                    _model.mul05 =
-                                        await actions.multiplyTwoDoubleNumbers(
-                                      0.35,
-                                      widget.footprintfrompreviouspage,
-                                    );
-
                                     context.pushNamed(
                                       'describefinal',
                                       queryParameters: {
@@ -756,30 +709,8 @@ class _DescribeElectricityWidgetState extends State<DescribeElectricityWidget>
                                           widget.footprintfrompreviouspage,
                                           ParamType.double,
                                         ),
-                                        'flying': serializeParam(
-                                          _model.mul01,
-                                          ParamType.double,
-                                        ),
-                                        'mobility': serializeParam(
-                                          _model.mul02,
-                                          ParamType.double,
-                                        ),
-                                        'housing': serializeParam(
-                                          _model.mul03,
-                                          ParamType.double,
-                                        ),
-                                        'diet': serializeParam(
-                                          _model.mul04,
-                                          ParamType.double,
-                                        ),
-                                        'spending': serializeParam(
-                                          _model.mul05,
-                                          ParamType.double,
-                                        ),
                                       }.withoutNulls,
                                     );
-
-                                    setState(() {});
                                   },
                                   child: Text(
                                     'Skip',
@@ -804,32 +735,6 @@ class _DescribeElectricityWidgetState extends State<DescribeElectricityWidget>
                                   _model.radioButtonValue3 != ''))
                             FFButtonWidget(
                               onPressed: () async {
-                                _model.mul11 =
-                                    await actions.multiplyTwoDoubleNumbers(
-                                  0.2,
-                                  _model.currentPageState,
-                                );
-                                _model.mul22 =
-                                    await actions.multiplyTwoDoubleNumbers(
-                                  0.4,
-                                  _model.currentPageState,
-                                );
-                                _model.mul33 =
-                                    await actions.multiplyTwoDoubleNumbers(
-                                  0.4,
-                                  _model.currentPageState,
-                                );
-                                _model.mul44 =
-                                    await actions.multiplyTwoDoubleNumbers(
-                                  0.25,
-                                  _model.currentPageState,
-                                );
-                                _model.mul55 =
-                                    await actions.multiplyTwoDoubleNumbers(
-                                  0.35,
-                                  _model.currentPageState,
-                                );
-
                                 context.pushNamed(
                                   'describefinal',
                                   queryParameters: {
@@ -837,30 +742,8 @@ class _DescribeElectricityWidgetState extends State<DescribeElectricityWidget>
                                       _model.currentPageState,
                                       ParamType.double,
                                     ),
-                                    'flying': serializeParam(
-                                      _model.mul11,
-                                      ParamType.double,
-                                    ),
-                                    'mobility': serializeParam(
-                                      _model.mul22,
-                                      ParamType.double,
-                                    ),
-                                    'housing': serializeParam(
-                                      _model.mul33,
-                                      ParamType.double,
-                                    ),
-                                    'diet': serializeParam(
-                                      _model.mul44,
-                                      ParamType.double,
-                                    ),
-                                    'spending': serializeParam(
-                                      _model.mul55,
-                                      ParamType.double,
-                                    ),
                                   }.withoutNulls,
                                 );
-
-                                setState(() {});
                               },
                               text: 'Next',
                               options: FFButtonOptions(
