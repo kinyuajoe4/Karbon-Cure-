@@ -82,7 +82,7 @@ class _AddtreecopyWidgetState extends State<AddtreecopyWidget> {
         color: FlutterFlowTheme.of(context).secondaryBackground,
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 20.0, 0.0),
         child: StreamBuilder<UsersRecord>(
           stream: UsersRecord.getDocument(currentUserReference!),
           builder: (context, snapshot) {

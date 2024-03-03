@@ -131,9 +131,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => MyAppointmentsWidget(),
         ),
         FFRoute(
-          name: 'appointmentDetails',
-          path: '/appointmentDetails',
-          builder: (context, params) => AppointmentDetailsWidget(
+          name: 'treeSpecificDetails',
+          path: '/treeSpecificDetails',
+          builder: (context, params) => TreeSpecificDetailsWidget(
             treedetails: params.getParam(
                 'treedetails',
                 ParamType.DocumentReference,

@@ -91,6 +91,11 @@ class MytreesRecord extends FirestoreRecord {
   double get carbonabsorbed => _carbonabsorbed ?? 0.0;
   bool hasCarbonabsorbed() => _carbonabsorbed != null;
 
+  // "isReminderset" field.
+  bool? _isReminderset;
+  bool get isReminderset => _isReminderset ?? false;
+  bool hasIsReminderset() => _isReminderset != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -109,6 +114,7 @@ class MytreesRecord extends FirestoreRecord {
     _treeStatus = snapshotData['treeStatus'] as String?;
     _visitStatus = snapshotData['visitStatus'] as bool?;
     _carbonabsorbed = castToType<double>(snapshotData['carbonabsorbed']);
+    _isReminderset = snapshotData['isReminderset'] as bool?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -166,6 +172,7 @@ Map<String, dynamic> createMytreesRecordData({
   String? treeStatus,
   bool? visitStatus,
   double? carbonabsorbed,
+  bool? isReminderset,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -184,6 +191,7 @@ Map<String, dynamic> createMytreesRecordData({
       'treeStatus': treeStatus,
       'visitStatus': visitStatus,
       'carbonabsorbed': carbonabsorbed,
+      'isReminderset': isReminderset,
     }.withoutNulls,
   );
 
@@ -209,7 +217,8 @@ class MytreesRecordDocumentEquality implements Equality<MytreesRecord> {
         e1?.fieldName == e2?.fieldName &&
         e1?.treeStatus == e2?.treeStatus &&
         e1?.visitStatus == e2?.visitStatus &&
-        e1?.carbonabsorbed == e2?.carbonabsorbed;
+        e1?.carbonabsorbed == e2?.carbonabsorbed &&
+        e1?.isReminderset == e2?.isReminderset;
   }
 
   @override
@@ -228,7 +237,8 @@ class MytreesRecordDocumentEquality implements Equality<MytreesRecord> {
         e?.fieldName,
         e?.treeStatus,
         e?.visitStatus,
-        e?.carbonabsorbed
+        e?.carbonabsorbed,
+        e?.isReminderset
       ]);
 
   @override

@@ -546,7 +546,7 @@ class _Demo2WidgetState extends State<Demo2Widget>
                                                   Colors.transparent,
                                               onTap: () async {
                                                 context.pushNamed(
-                                                  'appointmentDetails',
+                                                  'treeSpecificDetails',
                                                   queryParameters: {
                                                     'treedetails':
                                                         serializeParam(

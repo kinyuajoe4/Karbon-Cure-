@@ -171,6 +171,16 @@ class _NavBarPageState extends State<NavBarPage> {
                       : FlutterFlowTheme.of(context).grayLight,
                   size: 26.0,
                 ),
+                Text(
+                  'home',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: currentIndex == 0
+                        ? FlutterFlowTheme.of(context).success
+                        : FlutterFlowTheme.of(context).grayLight,
+                    fontSize: 11.0,
+                  ),
+                ),
               ],
             ),
           ),
@@ -184,6 +194,16 @@ class _NavBarPageState extends State<NavBarPage> {
                       ? FlutterFlowTheme.of(context).success
                       : FlutterFlowTheme.of(context).grayLight,
                   size: 26.0,
+                ),
+                Text(
+                  'projects',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: currentIndex == 1
+                        ? FlutterFlowTheme.of(context).success
+                        : FlutterFlowTheme.of(context).grayLight,
+                    fontSize: 11.0,
+                  ),
                 ),
               ],
             ),

@@ -14,11 +14,11 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'appointment_details_model.dart';
-export 'appointment_details_model.dart';
+import 'tree_specific_details_model.dart';
+export 'tree_specific_details_model.dart';
 
-class AppointmentDetailsWidget extends StatefulWidget {
-  const AppointmentDetailsWidget({
+class TreeSpecificDetailsWidget extends StatefulWidget {
+  const TreeSpecificDetailsWidget({
     super.key,
     this.treedetails,
   });
@@ -26,13 +26,13 @@ class AppointmentDetailsWidget extends StatefulWidget {
   final DocumentReference? treedetails;
 
   @override
-  State<AppointmentDetailsWidget> createState() =>
-      _AppointmentDetailsWidgetState();
+  State<TreeSpecificDetailsWidget> createState() =>
+      _TreeSpecificDetailsWidgetState();
 }
 
-class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget>
+class _TreeSpecificDetailsWidgetState extends State<TreeSpecificDetailsWidget>
     with TickerProviderStateMixin {
-  late AppointmentDetailsModel _model;
+  late TreeSpecificDetailsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -61,7 +61,7 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => AppointmentDetailsModel());
+    _model = createModel(context, () => TreeSpecificDetailsModel());
 
     setupAnimations(
       animationsMap.values.where((anim) =>
@@ -103,9 +103,9 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget>
             ),
           );
         }
-        final appointmentDetailsMytreesRecord = snapshot.data!;
+        final treeSpecificDetailsMytreesRecord = snapshot.data!;
         return Title(
-            title: 'appointmentDetails',
+            title: 'treeSpecificDetails',
             color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
             child: Scaffold(
               key: scaffoldKey,
@@ -162,7 +162,7 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget>
                         children: [
                           Expanded(
                             child: Text(
-                              appointmentDetailsMytreesRecord.treeName,
+                              treeSpecificDetailsMytreesRecord.treeName,
                               style: FlutterFlowTheme.of(context)
                                   .headlineSmall
                                   .override(
@@ -198,7 +198,7 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget>
                           Expanded(
                             child: Text(
                               valueOrDefault<String>(
-                                appointmentDetailsMytreesRecord.speciesType,
+                                treeSpecificDetailsMytreesRecord.speciesType,
                                 'not set',
                               ),
                               style: FlutterFlowTheme.of(context).bodySmall,
@@ -221,7 +221,7 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget>
                           ),
                           StreamBuilder<MytreesRecord>(
                             stream: MytreesRecord.getDocument(
-                                appointmentDetailsMytreesRecord.reference),
+                                treeSpecificDetailsMytreesRecord.reference),
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.
                               if (!snapshot.hasData) {
@@ -287,7 +287,7 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget>
                                                       BorderRadius.circular(
                                                           12.0),
                                                   child: Image.network(
-                                                    appointmentDetailsMytreesRecord
+                                                    treeSpecificDetailsMytreesRecord
                                                         .treeImage,
                                                     width: 98.0,
                                                     height: 120.0,
@@ -433,7 +433,7 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget>
                                                             .fromSTEB(0.0, 10.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      appointmentDetailsMytreesRecord
+                                                      treeSpecificDetailsMytreesRecord
                                                           .donor,
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -478,7 +478,7 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget>
                                                       valueOrDefault<String>(
                                                         dateTimeFormat(
                                                             'MEd',
-                                                            appointmentDetailsMytreesRecord
+                                                            treeSpecificDetailsMytreesRecord
                                                                 .nextVisit),
                                                         'not set',
                                                       ).maybeHandleOverflow(
@@ -526,7 +526,7 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget>
                                                       valueOrDefault<String>(
                                                         dateTimeFormat(
                                                             'MEd',
-                                                            appointmentDetailsMytreesRecord
+                                                            treeSpecificDetailsMytreesRecord
                                                                 .dateOfPlanting),
                                                         'not set',
                                                       ).maybeHandleOverflow(
@@ -569,10 +569,10 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget>
                         highlightColor: Colors.transparent,
                         onTap: () async {
                           _model.months = await actions.timeDifferenceInMonths(
-                            appointmentDetailsMytreesRecord.dateOfPlanting,
+                            treeSpecificDetailsMytreesRecord.dateOfPlanting,
                           );
                           _model.years = await actions.ageInYears(
-                            appointmentDetailsMytreesRecord.dateOfPlanting,
+                            treeSpecificDetailsMytreesRecord.dateOfPlanting,
                           );
 
                           setState(() {});
@@ -681,7 +681,7 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget>
                                 child: Container(
                                   height: 720.0,
                                   child: EditTreeDetailsWidget(
-                                    userTress: appointmentDetailsMytreesRecord,
+                                    userTress: treeSpecificDetailsMytreesRecord,
                                   ),
                                 ),
                               );
@@ -712,7 +712,7 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget>
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 36.0),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          await appointmentDetailsMytreesRecord.reference
+                          await treeSpecificDetailsMytreesRecord.reference
                               .delete();
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(

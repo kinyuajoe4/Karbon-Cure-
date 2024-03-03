@@ -10,6 +10,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'select_project_model.dart';
 export 'select_project_model.dart';
 
@@ -388,7 +389,7 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
-                                          Text(
+                                          GradientText(
                                             'Tree Planting',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -396,10 +397,20 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                   fontFamily: 'Outfit',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .success,
-                                                  fontSize: 15.0,
+                                                      .warning,
+                                                  fontSize: 17.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
+                                            colors: [
+                                              FlutterFlowTheme.of(context)
+                                                  .warning,
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryBtnText
+                                            ],
+                                            gradientType: GradientType.radial,
+                                            radius: 2.0,
                                           ),
                                           Text(
                                             'projects',
@@ -409,7 +420,7 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                   fontFamily: 'Outfit',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .success,
+                                                      .primaryBtnText,
                                                   fontSize: 15.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -425,11 +436,22 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
-                                          FaIcon(
-                                            FontAwesomeIcons.infoCircle,
-                                            color: FlutterFlowTheme.of(context)
-                                                .tertiary,
-                                            size: 24.0,
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              context.pushNamed(
+                                                  'learntreeplanting');
+                                            },
+                                            child: FaIcon(
+                                              FontAwesomeIcons.infoCircle,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .tertiary,
+                                              size: 24.0,
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -458,7 +480,7 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                               ),
                                               unselectedWidgetColor:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .warning,
                                             ),
                                             child: Checkbox(
                                               value: _model.checkboxValue1 ??=
@@ -528,8 +550,10 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
-                                          Text(
+                                          GradientText(
                                             'Solar Power',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -538,9 +562,20 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .success,
-                                                  fontSize: 15.0,
+                                                  fontSize: 21.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
+                                            colors: [
+                                              FlutterFlowTheme.of(context)
+                                                  .warning,
+                                              FlutterFlowTheme.of(context)
+                                                  .success,
+                                              FlutterFlowTheme.of(context).info,
+                                              FlutterFlowTheme.of(context).error
+                                            ],
+                                            gradientDirection:
+                                                GradientDirection.ltr,
+                                            gradientType: GradientType.linear,
                                           ),
                                           Text(
                                             'projects',
@@ -550,7 +585,7 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                   fontFamily: 'Outfit',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .success,
+                                                      .primaryBtnText,
                                                   fontSize: 15.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -582,7 +617,7 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                               ),
                                               unselectedWidgetColor:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .warning,
                                             ),
                                             child: Checkbox(
                                               value: _model.checkboxValue2 ??=
@@ -637,11 +672,22 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
-                                          FaIcon(
-                                            FontAwesomeIcons.infoCircle,
-                                            color: FlutterFlowTheme.of(context)
-                                                .tertiary,
-                                            size: 24.0,
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              context
+                                                  .pushNamed('learnsolarpower');
+                                            },
+                                            child: FaIcon(
+                                              FontAwesomeIcons.infoCircle,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .tertiary,
+                                              size: 24.0,
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -686,8 +732,10 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
-                                          Text(
+                                          GradientText(
                                             'Clean cook stoves',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -695,10 +743,21 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                   fontFamily: 'Outfit',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .success,
-                                                  fontSize: 15.0,
+                                                      .primaryText,
+                                                  fontSize: 20.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
+                                            colors: [
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryBtnText,
+                                              FlutterFlowTheme.of(context)
+                                                  .warning,
+                                              Color(0xFF673AB7),
+                                              Colors.blue
+                                            ],
+                                            gradientDirection:
+                                                GradientDirection.ltr,
+                                            gradientType: GradientType.linear,
                                           ),
                                           Text(
                                             'project',
@@ -740,7 +799,7 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                               ),
                                               unselectedWidgetColor:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .warning,
                                             ),
                                             child: Checkbox(
                                               value: _model.checkboxValue3 ??=
@@ -780,11 +839,22 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
-                                          FaIcon(
-                                            FontAwesomeIcons.infoCircle,
-                                            color: FlutterFlowTheme.of(context)
-                                                .tertiary,
-                                            size: 24.0,
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              context
+                                                  .pushNamed('learncookstove');
+                                            },
+                                            child: FaIcon(
+                                              FontAwesomeIcons.infoCircle,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .tertiary,
+                                              size: 24.0,
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -829,8 +899,10 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
-                                          Text(
+                                          GradientText(
                                             'Deforestation',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -838,10 +910,20 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                   fontFamily: 'Outfit',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .success,
-                                                  fontSize: 15.0,
+                                                      .warning,
+                                                  fontSize: 21.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
+                                            colors: [
+                                              FlutterFlowTheme.of(context)
+                                                  .error,
+                                              FlutterFlowTheme.of(context)
+                                                  .success,
+                                              FlutterFlowTheme.of(context)
+                                                  .darkBackground
+                                            ],
+                                            gradientType: GradientType.radial,
+                                            radius: 2.0,
                                           ),
                                           Text(
                                             'projects',
@@ -883,7 +965,7 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                               ),
                                               unselectedWidgetColor:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .warning,
                                             ),
                                             child: Checkbox(
                                               value: _model.checkboxValue4 ??=
@@ -922,11 +1004,22 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
-                                          FaIcon(
-                                            FontAwesomeIcons.infoCircle,
-                                            color: FlutterFlowTheme.of(context)
-                                                .tertiary,
-                                            size: 24.0,
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              context.pushNamed(
+                                                  'learndiffprevention');
+                                            },
+                                            child: FaIcon(
+                                              FontAwesomeIcons.infoCircle,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .tertiary,
+                                              size: 24.0,
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -972,8 +1065,10 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
-                                          Text(
+                                          GradientText(
                                             'Hydro power',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -982,9 +1077,20 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .success,
-                                                  fontSize: 15.0,
+                                                  fontSize: 21.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
+                                            colors: [
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryBtnText,
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary,
+                                              FlutterFlowTheme.of(context)
+                                                  .warning
+                                            ],
+                                            gradientDirection:
+                                                GradientDirection.ltr,
+                                            gradientType: GradientType.linear,
                                           ),
                                           Text(
                                             'projects',
@@ -994,7 +1100,7 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                   fontFamily: 'Outfit',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .success,
+                                                      .primaryBtnText,
                                                   fontSize: 15.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -1026,7 +1132,7 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                               ),
                                               unselectedWidgetColor:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .warning,
                                             ),
                                             child: Checkbox(
                                               value: _model.checkboxValue5 ??=
@@ -1064,11 +1170,21 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
-                                          FaIcon(
-                                            FontAwesomeIcons.infoCircle,
-                                            color: FlutterFlowTheme.of(context)
-                                                .tertiary,
-                                            size: 24.0,
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              context.pushNamed('learnhydro');
+                                            },
+                                            child: FaIcon(
+                                              FontAwesomeIcons.infoCircle,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .tertiary,
+                                              size: 24.0,
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -1113,8 +1229,10 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
-                                          Text(
+                                          GradientText(
                                             'Direct air capture',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -1123,9 +1241,20 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .success,
-                                                  fontSize: 15.0,
+                                                  fontSize: 21.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
+                                            colors: [
+                                              FlutterFlowTheme.of(context)
+                                                  .error,
+                                              FlutterFlowTheme.of(context)
+                                                  .warning,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryBtnText
+                                            ],
+                                            gradientDirection:
+                                                GradientDirection.ltr,
+                                            gradientType: GradientType.linear,
                                           ),
                                           Text(
                                             'projects',
@@ -1135,7 +1264,7 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                                   fontFamily: 'Outfit',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .success,
+                                                      .primaryBtnText,
                                                   fontSize: 15.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -1167,7 +1296,7 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                               ),
                                               unselectedWidgetColor:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .warning,
                                             ),
                                             child: Checkbox(
                                               value: _model.checkboxValue6 ??=
@@ -1207,11 +1336,22 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
-                                          FaIcon(
-                                            FontAwesomeIcons.infoCircle,
-                                            color: FlutterFlowTheme.of(context)
-                                                .tertiary,
-                                            size: 24.0,
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              context
+                                                  .pushNamed('learnaircapture');
+                                            },
+                                            child: FaIcon(
+                                              FontAwesomeIcons.infoCircle,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .tertiary,
+                                              size: 24.0,
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -1349,7 +1489,7 @@ class _SelectProjectWidgetState extends State<SelectProjectWidget>
                               activeTrackColor:
                                   FlutterFlowTheme.of(context).accent1,
                               inactiveTrackColor:
-                                  FlutterFlowTheme.of(context).alternate,
+                                  FlutterFlowTheme.of(context).info,
                               inactiveThumbColor:
                                   FlutterFlowTheme.of(context).secondaryText,
                             ),

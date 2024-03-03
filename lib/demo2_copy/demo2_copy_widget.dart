@@ -134,65 +134,115 @@ class _Demo2CopyWidgetState extends State<Demo2CopyWidget>
                       ),
                       style: FlutterFlowTheme.of(context).labelLarge.override(
                             fontFamily: 'Poppins',
-                            fontSize: 25.0,
+                            fontSize: 22.0,
                             fontWeight: FontWeight.bold,
                           ),
                     ),
                     actions: [
                       Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 17.0, 0.0),
-                        child: AlignedTooltip(
-                          content: Padding(
-                              padding: EdgeInsets.all(4.0),
-                              child: Text(
-                                'Add Tree',
-                                style: FlutterFlowTheme.of(context).bodyLarge,
-                              )),
-                          offset: 4.0,
-                          preferredDirection: AxisDirection.down,
-                          borderRadius: BorderRadius.circular(8.0),
-                          backgroundColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          elevation: 4.0,
-                          tailBaseWidth: 24.0,
-                          tailLength: 12.0,
-                          waitDuration: Duration(milliseconds: 100),
-                          showDuration: Duration(milliseconds: 1500),
-                          triggerMode: TooltipTriggerMode.tap,
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                enableDrag: false,
-                                context: context,
-                                builder: (context) {
-                                  return GestureDetector(
-                                    onTap: () => _model
-                                            .unfocusNode.canRequestFocus
-                                        ? FocusScope.of(context)
-                                            .requestFocus(_model.unfocusNode)
-                                        : FocusScope.of(context).unfocus(),
-                                    child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: AddtreeWidget(
-                                        treedetails: widget.treedetails,
-                                      ),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 10.0, 10.0, 0.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              enableDrag: false,
+                              context: context,
+                              builder: (context) {
+                                return GestureDetector(
+                                  onTap: () =>
+                                      _model.unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                  child: Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: AddtreeWidget(
+                                      treedetails: widget.treedetails,
                                     ),
-                                  );
-                                },
-                              ).then((value) => safeSetState(() {}));
-                            },
-                            child: Icon(
-                              Icons.add_circle,
-                              color: Color(0xFF10FF00),
-                              size: 39.0,
-                            ),
+                                  ),
+                                );
+                              },
+                            ).then((value) => safeSetState(() {}));
+                          },
+                          child: Stack(
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 17.0, 0.0),
+                                child: AlignedTooltip(
+                                  content: Padding(
+                                      padding: EdgeInsets.all(4.0),
+                                      child: Text(
+                                        'Add Trees',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyLarge,
+                                      )),
+                                  offset: 4.0,
+                                  preferredDirection: AxisDirection.up,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  backgroundColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  elevation: 4.0,
+                                  tailBaseWidth: 24.0,
+                                  tailLength: 12.0,
+                                  waitDuration: Duration(milliseconds: 100),
+                                  showDuration: Duration(milliseconds: 1500),
+                                  triggerMode: TooltipTriggerMode.tap,
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      await showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        enableDrag: false,
+                                        context: context,
+                                        builder: (context) {
+                                          return GestureDetector(
+                                            onTap: () => _model
+                                                    .unfocusNode.canRequestFocus
+                                                ? FocusScope.of(context)
+                                                    .requestFocus(
+                                                        _model.unfocusNode)
+                                                : FocusScope.of(context)
+                                                    .unfocus(),
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: AddtreeWidget(
+                                                treedetails: widget.treedetails,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ).then((value) => safeSetState(() {}));
+                                    },
+                                    child: Icon(
+                                      Icons.add_circle,
+                                      color: Color(0xFF10FF00),
+                                      size: 39.0,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 40.0, 2.0, 0.0),
+                                child: Text(
+                                  'Add Trees ',
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -308,7 +358,7 @@ class _Demo2CopyWidgetState extends State<Demo2CopyWidget>
                                                   Colors.transparent,
                                               onTap: () async {
                                                 context.pushNamed(
-                                                  'appointmentDetails',
+                                                  'treeSpecificDetails',
                                                   queryParameters: {
                                                     'treedetails':
                                                         serializeParam(
@@ -567,7 +617,7 @@ class _Demo2CopyWidgetState extends State<Demo2CopyWidget>
                                                                             fontFamily:
                                                                                 'Poppins',
                                                                             color:
-                                                                                Colors.white,
+                                                                                FlutterFlowTheme.of(context).primaryText,
                                                                           ),
                                                                     ),
                                                                   ),
